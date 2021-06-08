@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+    {% set route = app.request.get("_route") %}
+
+    <h2> Créer un Pack de produits</h2>
+
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-5">
+                {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.picture) }}
+                    {{ form_row(form.price) }}
+                    {{ form_row(form.category) }}
+                    {{ form_row(form.content) }}
+                    <button type="submit" class="btn btn-primary">Créer le pack</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
