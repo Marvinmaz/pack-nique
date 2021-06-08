@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% set route = app.request.get("_route") %}
+
+    <h2> Créer votre compte</h2>
+
+<div class="container">
+    {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.mail) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.address) }}
+        {{ form_row(form.postalCode) }}
+        {{ form_row(form.country) }}
+        {{ form_row(form.tel) }}
+        {{ form_row(form.pics) }}
+        <button type="submit" class="btn btn-primary">GO !</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
