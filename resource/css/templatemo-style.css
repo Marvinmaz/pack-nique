@@ -201,6 +201,7 @@ body {
 
 .container {
   background-color: white;
+  
 }
 
 p, address {
@@ -345,10 +346,13 @@ p, address {
 }
 
 .tm-gallery {
-  margin-bottom: 80px;
+  margin-bottom: 10px;
+  
+
 }
 
 .tm-gallery-page {
+  
   max-width: 280px;
   margin-left: auto;
   margin-right: auto;
@@ -435,7 +439,7 @@ p, address {
 .tm-paging-item {
   list-style: none;
   display: inline-block;
-  border: 1px solid #2F956D;
+  
   margin: 7px;
 }
 
@@ -867,3 +871,5 @@ address {
 .panel p {
   padding: 5px 20px 30px;
 }
+
+
