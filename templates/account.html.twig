@@ -2,11 +2,7 @@
 {% block body %}
 
 {% set route = app.request.get("_route") %}
-{% if route == "updateAccount" %}
-    <h2> Créer votre compte</h2>
-{% else %}
-    <h2> Mettez à jour votre compte</h2>
-{% endif %}
+{{ parent() }}
 <div class="container">
     {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
         {{ form_row(form.firstName) }}
@@ -19,7 +15,7 @@
         {{ form_row(form.country) }}
         {{ form_row(form.tel) }}
         {{ form_row(form.pics) }}
-        <button type="submit" class="btn btn-primary">GO !</button>
+        <input type="submit" value="GO">
     {{ form_end(form) }}
 </div>
 {% endblock %}

@@ -24,6 +24,7 @@ class UserController extends AbstractController{
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user->setIsAdmin(0);
 
             $em->persist($user);
             $em->flush();
