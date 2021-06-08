@@ -2,22 +2,20 @@
 {% block body %}
 
 {% set route = app.request.get("_route") %}
-{% if route == "updateAccount" %}
+
     <h2> Créer votre compte</h2>
-{% else %}
-    <h2> Mettez à jour votre compte</h2>
-{% endif %}
+
 <div class="container">
     {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
         {{ form_row(form.firstName) }}
-        {{ form_row(form.surName) }}
+        {{ form_row(form.name) }}
         {{ form_row(form.mail) }}
         {{ form_row(form.password) }}
         {{ form_row(form.address) }}
         {{ form_row(form.postalCode) }}
         {{ form_row(form.country) }}
-        {{ form_row(form.phone) }}
-        {{ form_row(form.image) }}
+        {{ form_row(form.tel) }}
+        {{ form_row(form.pics) }}
         <button type="submit" class="btn btn-primary">GO !</button>
     {{ form_end(form) }}
 </div>
