@@ -8,15 +8,15 @@
     <title>{% block title %}Pack Nique{% endblock %}</title>
 	{% block stylesheets %}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
-	<link href="css/templatemo-style.css" rel="stylesheet" />
-	<link href="css/slideshow.css" rel="stylesheet" />
-	<link rel="icon" href="img/logo3.png">
+	<link href="public/assets/css/templatemo-style.css" rel="stylesheet" />
+	<link href="public/assets/css/slideshow.css" rel="stylesheet" />
+	<link rel="icon" href="public/assets/img/logo3.png">
 	{% endblock %}
 </head>
 
 <body> 
 	{% block body %}
-	
+	{{ parent()}}
 
 	<div class="container">
 		<div class="placeholder">
@@ -24,17 +24,17 @@
 				<div class="tm-header">
 					<div class="row tm-header-inner">
 						<div class="col-md-6 col-12">
-							<img src="img/logo3.png" alt="Logo" class="tm-site-logo" /> 
+							<img src="public/assets/img/logo3.png" alt="Logo" class="tm-site-logo" /> 
 							<div class="tm-site-text-box">
 								<h1 class="tm-site-title">Pack Nique</h1>
-								<h6 class="tm-site-description">prendre plaisir de nature !</h6>	
+								<h6 class="tm-site-description">Le plaisir de la nature !</h6>	
 							</div>
 						</div>
 						<nav class="col-md-6 col-12 tm-nav">
 							<ul class="tm-nav-ul">
-								<li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Accueil</a></li>
-								<li class="tm-nav-li"><a href="about.html" class="tm-nav-link">Home</a></li>
-								<li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Contact</a></li>
+								<li class="tm-nav-li"><a href="#" class="tm-nav-link active">Accueil</a></li>
+								<li class="tm-nav-li"><a href="#" class="tm-nav-link">Home</a></li>
+								<li class="tm-nav-li"><a href="#" class="tm-nav-link">Contact</a></li>
 							</ul>
 						</nav>	
 					</div>
@@ -68,7 +68,7 @@
 				  <div class="slideshow-items">
 					<div class="item">
 					  <div class="item-image-container">
-						<img class="item-image" src="img/gallery/01.jpg" />
+						<img class="item-image" src="public/assets/img/gallery/01.jpg" />
 					  </div>
 				
 					  <!-- Staggered Description Elements -->
@@ -80,7 +80,7 @@
 					</div>
 					<div class="item">
 					  <div class="item-image-container">
-						<img class="item-image" src="img/gallery/02.jpg" />
+						<img class="item-image" src="public/assets/img/gallery/02.jpg" />
 					  </div>
 					  <!-- Staggered Header Elements -->
 					
@@ -102,7 +102,7 @@
 					</div>
 					<div class="item">
 					  <div class="item-image-container">
-						<img class="item-image" src="img/gallery/03.jpg" />
+						<img class="item-image" src="public/assets/img/gallery/03.jpg" />
 					  </div>
 					  
 					
@@ -133,7 +133,7 @@
 				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -143,7 +143,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/02.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/02.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -153,7 +153,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Sed varius turpis</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -163,7 +163,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -173,7 +173,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -183,7 +183,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Quisque et felis eros</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -193,7 +193,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Sed ultricies dui</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -203,7 +203,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Donec porta consequat</h4>
 								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
@@ -217,7 +217,7 @@
 				<div id="tm-gallery-page-salad" class="tm-gallery-page hidden">
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Salad Menu One</h4>
 								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
@@ -227,7 +227,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Second Title Salad</h4>
 								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
@@ -237,7 +237,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Third Salad Item</h4>
 								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
@@ -247,7 +247,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Superior Salad</h4>
 								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
@@ -257,7 +257,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Sed ultricies dui</h4>
 								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
@@ -267,7 +267,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
 								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
@@ -281,7 +281,7 @@
 				<div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Noodle One</h4>
 								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -291,7 +291,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Noodle Second</h4>
 								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -301,7 +301,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Third Soft Noodle</h4>
 								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -311,7 +311,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
 								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -321,7 +321,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
 								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -331,7 +331,7 @@
 					</article>
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="public/assets/img/gallery/03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">Quisque et felis eros</h4>
 								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -346,7 +346,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<figure class="tm-description-figure">
-							<img src="img/img-01.jpg" alt="Image" class="img-fluid" />
+							<img src="public/assets/img/img-01.jpg" alt="Image" class="img-fluid" />
 						</figure>
 					</div>
 					<div class="col-md-6">
@@ -367,15 +367,14 @@
 		</footer>
 	</div>
 	{% block javascripts %}
-	<script src="js/jquery.min.js"></script>
-	<script src="js/parallax.min.js"></script>
-	<script src="js/slideshow.js"></script>
+	<script src="public/assets/js/jquery.min.js"></script>
+	<script src="public/assets/js/parallax.min.js"></script>
+	<script src="public/assets/js/slideshow.js"></script>
 	<script>
 		$(document).ready(function(){
 			// Handle click on paging links
 			$('.tm-paging-link').click(function(e){
 				e.preventDefault();
-				
 				var page = $(this).text().toLowerCase();
 				$('.tm-gallery-page').addClass('hidden');
 				$('#tm-gallery-page-' + page).removeClass('hidden');
