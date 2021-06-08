@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% set route = app.request.get("_route") %}
+
+<div class="container">
+{% block title %} <h2> Veuillez vous connecter </h2>{% endblock %}
+    {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+        {{ form_row(form.mail) }}
+        {{ form_row(form.password) }}
+        <button type="submit" class="btn btn-primary">Connectez vous par mail</button>
+    {{ form_end(form) }}
+
+    <p style="display: flex; justify-content: center;"> _____________________________ </p> 
+
+    {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+        {{ form_row(form.tel) }}
+        {{ form_row(form.password) }}
+        <button type="submit" class="btn btn-primary"> Connectez vous par téléphone </button>
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}
