@@ -21,7 +21,7 @@ class User {
 
      /**
      * @Assert\NotBlank(message ="un nom ne doit pas etre vide")
-     * @Assert\length(
+     * @Assert\Length(
      *      min = 1,
      *      max = 50,
      *      minMessage = "Ce nom est trop court !",
@@ -59,7 +59,7 @@ class User {
      /**
      * @ORM\Column(type="string")
      *  @Assert\NotBlank(message ="un nom ne doit pas etre vide")
-     *  @Assert\length(
+     *  @Assert\Length(
      *      min = 1,
      *      max = 50,
      *      minMessage = "Ce nom est trop court !",
@@ -82,7 +82,7 @@ class User {
      /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message ="le numero de telphone ne doit pas etre vide")
-     * @Assert\length(
+     * @Assert\Length(
      *      min = 9,
      *      max = 19,
      *      minMessage = "le numero de telephone est trop court !",

@@ -22,7 +22,7 @@ class Pack {
      /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message ="le nom ne doit pas etre vide")
-     * @Assert\length(
+     * @Assert\Length(
      *      min = 1,
      *      minMessage = "le nom est trop court !"
      * ) 
@@ -42,7 +42,7 @@ class Pack {
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message ="le contenu ne doit pas etre vide")
-     * @Assert\length(
+     * @Assert\Length(
      *      min = 1,
      *      minMessage = "le contenu est trop court !"
      * ) 

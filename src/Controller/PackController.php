@@ -15,14 +15,16 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PackController extends AbstractController{
     /**
-     * @Route("/create-pack", name="Createpack")
+     * @Route("/create-pack", name="createPack")
      */
     public function newPack(Request $request, SluggerInterface $slugger): Response{
         $pack = new Pack();
-
         $form = $this->createForm(PackType::class, $pack);
+       
         $form->handleRequest($request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            $pack->setSales_volume(0);
             $picture = $form->get('picture')->getData();
 
             // this condition is needed because the 'picture' field is not required
@@ -48,12 +50,12 @@ class PackController extends AbstractController{
                 // instead of its contents
                 $pack->setPicture($newFilename);
             }
-
+           
             $em = $this->getDoctrine()->getManager();
             $em->persist($pack);
             $em->flush();
 
-            return $this->redirectToRoute("base");
+            return $this->redirectToRoute("read-allPack");
         }
 
         return $this->render('pack/createPack.html.twig', [
@@ -62,7 +64,7 @@ class PackController extends AbstractController{
     }
 
     /**
-     * @Route("/UpdatePack/{id}", name="updatePack")
+     * @Route("/update-pack/{id}", name="updatePack")
      */
     public function update(Request $request, Pack $updatePack): Response{
         $form = $this->createForm(PackType::class, $updatePack);
@@ -70,7 +72,7 @@ class PackController extends AbstractController{
         if ($form->isSubmitted() && $form->isValid()){
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute("base");
+            return $this->redirectToRoute("read-allPack");
         }
 
         return $this->render('pack/updatePack.html.twig', [
@@ -79,18 +81,18 @@ class PackController extends AbstractController{
     }
 
     /**
-     * @Route("/deletePack/{id}", name="deletePack")
+     * @Route("/delete-pack/{id}", name="deletePack")
      */
     public function delete(Pack $delete): Response{
         $em = $this->getDoctrine()->getManager();
         $em->remove($delete);
         $em->flush();
 
-        return $this->redirectToRoute("base");
+        return $this->redirectToRoute("read-allPack");
     }
 
     /**
-     * @Route("/read-allPack", name="read-allPack")
+     * @Route("/read-allpack", name="read-allPack")
      */
     public function readAll(): Response{
         $repository = $this->getDoctrine()->getRepository(Pack::class);
@@ -102,7 +104,7 @@ class PackController extends AbstractController{
     }
 
     /**
-     * @Route("/readPack/{id}", name="readPack")
+     * @Route("/read-pack/{id}", name="readPack")
      */
     public function read(Pack $pack): Response{
         return $this->render ("pack/readPack.html.twig", [
