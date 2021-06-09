@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\Address;
@@ -12,7 +11,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class MailerController extends AbstractController {
     /**
-     * @Route("/contactSana")
+     * @Route("/contact-sana")
      */
     public function sendEmailSana(MailerInterface $mailer) {
         $email = (new Email())
@@ -31,7 +30,7 @@ class MailerController extends AbstractController {
     }
 
     /**
-     * @Route("/contactMarvin")
+     * @Route("/contact-marvin")
      */
     public function sendEmailMarvin(MailerInterface $mailer) {
         $email = (new Email())
@@ -47,8 +46,9 @@ class MailerController extends AbstractController {
                 dump($e);
             }
         
-    }/**
-     * @Route("/contactSebastien")
+    }
+    /**
+     * @Route("/contact-sebastien")
      */
     public function sendEmailSébastien(MailerInterface $mailer) {
         $email = (new Email())
@@ -65,7 +65,7 @@ class MailerController extends AbstractController {
             }
         
     }/**
-     * @Route("/contactSteven")
+     * @Route("/contact-steven")
      */
     public function sendEmailSteven(MailerInterface $mailer) {
         $email = (new Email())
