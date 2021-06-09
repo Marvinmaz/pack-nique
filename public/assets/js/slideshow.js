@@ -1,7 +1,8 @@
 "use strict";
 
 // Master DOManipulator v2 ------------------------------------------------------------
-const items = document.querySelectorAll('.item'),
+window.addEventListener("load", () => {
+  const items = document.querySelectorAll('.item'),
       controls = document.querySelectorAll('.control'),
       headerItems = document.querySelectorAll('.item-header'),
       descriptionItems = document.querySelectorAll('.item-description'),
@@ -74,3 +75,4 @@ const slider = {
 };
 let intervalF = setInterval(slider.nextSlide, interval);
 slider.init();
+});
