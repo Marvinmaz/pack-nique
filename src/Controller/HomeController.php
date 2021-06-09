@@ -5,14 +5,11 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-
-class ContactController extends AbstractController{
+class HomeController extends AbstractController {
     /**
-     * @Route("/")
+     * @Route("/", name="home")
      */
-    public function contact()
-    {
-        return $this->redirectToRoute("/contact");
+    public function FunctionName() {
+        return $this->render("index.html.twig");
     }
 }
