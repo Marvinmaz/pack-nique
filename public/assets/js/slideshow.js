@@ -1,6 +1,6 @@
 "use strict";
 
-// Master DOManipulator v2 ------------------------------------------------------------
+// ----------------------------------------------------
 window.addEventListener("load", () => {
   const items = document.querySelectorAll('.item'),
       controls = document.querySelectorAll('.control'),
