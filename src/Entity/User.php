@@ -111,17 +111,17 @@ class User {
      /**
      * @ORM\OneToMany(targetEntity="App\Entity\Sold", mappedBy="User")
      */
-    private $sold;
+    private $solds;
 
     // 0 : N
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="User")
      */
-    private $comment;
+    private $comments;
 
     public function __construct() {
-        $this->sold = new ArrayCollection();
-        $this->comment = new ArrayCollection();
+        $this->solds = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
      
     public function getId()
@@ -269,9 +269,9 @@ class User {
     /**
      * Get the value of sold
      */ 
-    public function getSold()
+    public function getSolds()
     {
-        return $this->sold;
+        return $this->solds;
     }
 
     /**
@@ -279,9 +279,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setSold($sold)
+    public function setSolds($solds)
     {
-        $this->sold = $sold;
+        $this->solds = $solds;
 
         return $this;
     }
@@ -289,9 +289,9 @@ class User {
     /**
      * Get the value of comment
      */ 
-    public function getComment()
+    public function getComments()
     {
-        return $this->comment;
+        return $this->comments;
     }
 
     /**
@@ -299,9 +299,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setComment($comment)
+    public function setComments($comments)
     {
-        $this->comment = $comment;
+        $this->comments = $comments;
 
         return $this;
     }
