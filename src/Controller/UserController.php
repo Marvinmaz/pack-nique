@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController{
 
     /**
-     * @Route("/CreateAccount", name="account")
+     * @Route("/create-account", name="account")
      */
     public function createAccount(Request $request): Response
     {
@@ -28,7 +28,7 @@ class UserController extends AbstractController{
 
             $em->persist($user);
             $em->flush();
-
+            
             return $this->redirectToRoute('account');
         }
         return $this->render("./account.html.twig", [

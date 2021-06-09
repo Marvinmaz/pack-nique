@@ -1,21 +1,28 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
 
-{% set route = app.request.get("_route") %}
+
 {{ parent() }}
 <div class="container">
-    {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
-        {{ form_row(form.firstName) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.age) }}
-        {{ form_row(form.mail) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.address) }}
-        {{ form_row(form.postalCode) }}
-        {{ form_row(form.country) }}
-        {{ form_row(form.tel) }}
-        {{ form_row(form.pics) }}
-        <input type="submit" value="GO">
-    {{ form_end(form) }}
+    <div class="row" style="justify-content: center; ">
+        <div class="col-md-offset-3 col-md-4" style=" border: 1px solid black; border-radius: 5px ; background-color: #FFEAE5;">
+            {{ form_start(form, {"attr":{'novalidate': 'novalidate'}}) }}
+                {{ form_row(form.firstName) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.age) }}
+                {{ form_row(form.mail) }}
+                {{ form_row(form.password) }}
+                {{ form_row(form.address) }}
+                {{ form_row(form.postalCode) }}
+                {{ form_row(form.country) }}
+                {{ form_row(form.tel) }}
+                {{ form_row(form.pics) }}
+                <input type="submit" value="GO" class="btn btn-primary w-100">
+            {{ form_end(form) }}
+        </div>
+    </div>
 </div>
+
+
 {% endblock %}
