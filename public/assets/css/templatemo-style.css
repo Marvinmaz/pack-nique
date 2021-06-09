@@ -2,7 +2,7 @@
 
 Simple House
 
-https://templatemo.com/tm-539-simple-house
+
 
 */
 
@@ -337,6 +337,8 @@ p, address {
 .tm-welcome-section {
   margin: 60px auto;
   max-width: 655px;
+  padding-top: 50px;
+  
 }
 
 .tm-section-title {
@@ -873,3 +875,14 @@ address {
 }
 
 
+.trier{
+  width: 20%;
+  border: 2px solid black;
+  margin-left: 120vh;
+}
+
+.sana{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
