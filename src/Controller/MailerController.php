@@ -15,7 +15,7 @@ class MailerController extends AbstractController {
     /**
      * @Route("/contact-sana")
      */
-    public function sendEmailSana(MailerInterface $mailer): Response {
+    public function sendEmailSana(MailerInterface $mailer)/*:Response*/ {
         $email = (new Email())
             ->from(new Address('fabien@example.com'))            
             ->to('sana.rezaei75@gmail.com')
@@ -37,7 +37,7 @@ class MailerController extends AbstractController {
     /**
      * @Route("/contact-marvin")
      */
-    public function sendEmailMarvin(MailerInterface $mailer):Response {
+    public function sendEmailMarvin(MailerInterface $mailer)/*:Response*/ {
         $email = (new Email())
             ->from(new Address('fabien@example.com'))            
             ->to('marvinmazel9575@gmail.com')
@@ -56,7 +56,7 @@ class MailerController extends AbstractController {
     /**
      * @Route("/contact-sebastien")
      */
-    public function sendEmailSébastien(MailerInterface $mailer): Response {
+    public function sendEmailSébastien(MailerInterface $mailer)/*:Response*/ {
         $email = (new Email())
             ->from(new Address('{fabien@example.com}'))            
             ->to('sebmichaut00@gmail.com')
@@ -75,7 +75,7 @@ class MailerController extends AbstractController {
     /**
      * @Route("/contact-steven")
      */
-    public function sendEmailSteven(MailerInterface $mailer): Response {
+    public function sendEmailSteven(MailerInterface $mailer)/*:Response*/ {
         $email = (new Email())
             ->from(new Address('fabien@example.com'))            
             ->to('stevennichollspro@gmail.com')
