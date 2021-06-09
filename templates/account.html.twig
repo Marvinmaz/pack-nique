@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
 
 {% set route = app.request.get("_route") %}
 
-    <h2> Créer votre compte</h2>
+{{ parent() }}
+<h2> Créer votre compte</h2>
 
 <div class="container">
     {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
