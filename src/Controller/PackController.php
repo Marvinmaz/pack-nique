@@ -15,9 +15,9 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PackController extends AbstractController{
     /**
-     * @Route("/CreatePack", name="Createpack")
+     * @Route("/create-pack", name="Createpack")
      */
-    public function newPack(Request $request): Response{
+    public function newPack(Request $request, SluggerInterface $slugger): Response{
         $pack = new Pack();
 
         $form = $this->createForm(PackType::class, $pack);
@@ -36,16 +36,17 @@ class PackController extends AbstractController{
                 // Move the file to the directory where brochures are stored
                 try {
                     $picture->move(
-                        $this->getParameter('assets/images'),
+                        $this->getParameter('images'),
                         $newFilename
                     );
                 } catch (FileException $e) {
+                    dump($e);
                     // ... handle exception if something happens during file upload
                 }
 
                 // updates the 'pictureFilename' property to store the PDF file name
                 // instead of its contents
-                $em->setPicture($newFilename);
+                $pack->setPicture($newFilename);
             }
 
             $em = $this->getDoctrine()->getManager();
