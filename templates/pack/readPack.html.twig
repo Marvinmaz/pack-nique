@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+    {% set route = app.request.get("_route") %}
+
+    <h2> Voir un Pack de produits</h2>
+
+    <div class="container">
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <img src="/uploads/images/{{ pack.picture }}" class="card-img-top" alt="...">
+                <h5 class="card-title">{{ pack.name }}</h5>                       
+                <p class="card-text">{{ pack.content }}</p>
+                <p class="card-text">{{ pack.price }} €</p>
+                <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning">Modifier ce pack</a>
+                <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger">supprimer ce pack</a>
+                <a href="/create-pack/" class="card-link btn btn-primary">Créer un pack</a>
+                <a href="/read-allpack/" class="card-link btn btn-success">voir tous les packs</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
