@@ -1,6 +1,8 @@
-
-        
-        {% block title %}<title>Welcome!</title>{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -9,14 +11,17 @@
         {% endblock %}
 
         {% block javascripts %}
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+            <script src="{{ asset('assets/js/slideshow.js') }}"></script>
         {% endblock %}
-    
+    </head>
+    <body>
         {% block body %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
             <!-- Icone temporaire -->
-              <a class="navbar-brand" href="/"><i class="fas fa-utensils"></i></a>
+              <a class="navbar-brand" href="#"><i class="fas fa-utensils"></i></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -26,20 +31,21 @@
                     <a class="nav-link" href="/create-account">Création du compte/modification</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/"><i class="fas fa-shopping-cart"></i> Panier</a>
+                    <a class="nav-link" href="#">Création du compte/modification</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/login"> <i class="fas fa-power-off"></i> Connexion</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/"> <i class="fas fa-user-circle"></i> Compte</a>
+                    <a class="nav-link" href="#"> <i class="fas fa-power-off"></i> Connexion/deconnexion</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/contact"> <i class="fas fa-phone"></i> Contact</a>
+                    <a class="nav-link" href="#"> <i class="fas fa-user-circle"></i> Compte</a>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
         {% endblock %}
-    
+    </body>
+</html>
