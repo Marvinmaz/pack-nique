@@ -10,9 +10,7 @@
 	{% endblock %}
 
 	{% block javascripts %}
-			<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-			<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
-			<script src="{{ asset('assets/js/slideshow.js') }}"></script>
+		{{parent()}}
 		<script>
 			$(document).ready(function(){
 				// Handle click on paging links
@@ -53,7 +51,7 @@
 		<main>
 			<div class="sana">
 			<header class="row tm-welcome-section">
-				<h2 class="col-12 text-center tm-section-title">Bienvenue àssss Pack Nique</h2>
+				<h2 class="col-12 text-center tm-section-title">Bienvenue à Pack Nique</h2>
 				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
 			</header>
 			</div>
