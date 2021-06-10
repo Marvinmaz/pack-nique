@@ -1,0 +1,7 @@
+body{
+    background-image: url(https://odelices.ouest-france.fr/images/articles/pique-nique.jpg.webp);
+    background-size: cover;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    height: 100vh;
+}
