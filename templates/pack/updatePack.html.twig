@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+    {% set route = app.request.get("_route") %}
+
+    <h2>Mettre à jour un pack / GESTION ADMINISTRATEUR</h2>
+
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-5">
+                {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.picture) }}
+                    {{ form_row(form.price) }}
+                    {{ form_row(form.categories) }}
+                    {{ form_row(form.content) }}
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            window.addEventListener("load", event => {
+                $(".custom-file-input").on("change", function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+            });
+        </script>
+{% endblock %}

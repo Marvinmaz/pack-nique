@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
-    
+ {% block body %}  
+{{ parent() }}
 <div class="container" style="display: flex; margin: 5px;">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -33,3 +34,4 @@
         </div>
     </div>
 </div>
+{% endblock %} 
