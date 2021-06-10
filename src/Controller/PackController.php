@@ -117,13 +117,13 @@ class PackController extends AbstractController{
     }
 
     /**
-     * @Route("/read-allpack", name="read-allPack")
+     * @Route("/", name="home")
      */
     public function readAll(): Response{
         $repository = $this->getDoctrine()->getRepository(Pack::class);
         $packs = $repository->findAll();
 
-        return $this->render("pack/read-allPack.html.twig", [
+        return $this->render("/index.html.twig", [
             "packs" => $packs
         ]);
     }
