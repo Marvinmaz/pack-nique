@@ -5,15 +5,14 @@ security:
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    providers:
-        users_in_memory: { memory: null }
+    
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
             lazy: true
+            provider: app_user_provider
             form_login: 
                 login_path: login
                 check_path: login
@@ -34,4 +33,4 @@ security:
             app_user_provider:
                 entity:
                     class: App\Entity\User
-                    property: user
+                    property: username
