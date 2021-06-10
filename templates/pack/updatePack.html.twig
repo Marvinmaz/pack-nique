@@ -4,8 +4,8 @@
 
     {% set route = app.request.get("_route") %}
 
-    <h2> Créer un Pack de produits / GESTION ADMINISTRATEUR</h2>
-    
+    <h2>Mettre à jour un pack / GESTION ADMINISTRATEUR</h2>
+
     <div class = "container">
         <div class = "row">
             <div class = "col-5">
@@ -15,7 +15,7 @@
                     {{ form_row(form.price) }}
                     {{ form_row(form.categories) }}
                     {{ form_row(form.content) }}
-                    <button type="submit" class="btn btn-primary">Créer le pack</button>
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
                 {{ form_end(form) }}
             </div>
         </div>

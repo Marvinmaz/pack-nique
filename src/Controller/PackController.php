@@ -6,7 +6,6 @@ use App\Entity\Pack;
 use App\Form\PackType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -66,10 +65,36 @@ class PackController extends AbstractController{
     /**
      * @Route("/update-pack/{id}", name="updatePack")
      */
-    public function update(Request $request, Pack $updatePack): Response{
+    public function update(Request $request, Pack $updatePack, SluggerInterface $slugger): Response{
         $form = $this->createForm(PackType::class, $updatePack);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+            $picture = $form->get('picture')->getData();
+
+            // this condition is needed because the 'picture' field is not required
+            // so the picture file must be processed only when a file is uploaded
+            if($picture){
+                $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $picture->move(
+                        $this->getParameter('images'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    dump($e);
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'pictureFilename' property to store the PDF file name
+                // instead of its contents
+                $updatePack->setPicture($newFilename);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute("read-allPack");
@@ -107,7 +132,7 @@ class PackController extends AbstractController{
      * @Route("/read-pack/{id}", name="readPack")
      */
     public function read(Pack $pack): Response{
-        return $this->render ("pack/readPack.html.twig", [
+        return $this->render("pack/readPack.html.twig", [
             "pack" => $pack
         ]);
     }

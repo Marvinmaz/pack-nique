@@ -15,10 +15,10 @@
                         <h5 class="card-title">{{ pack.name }}</h5>                       
                         <p class="card-text">{{ pack.content }}</p>
                         <p class="card-text">{{ pack.price }} €</p>
-                        <a href="update-pack/{{ pack.id }}" class="card-link btn btn-warning">Modifier ce pack</a>
-                        <a href="delete-pack/{{ pack.id }}" class="card-link btn btn-danger">supprimer ce pack</a>
-                        <a href="create-pack/" class="card-link btn btn-primary">Créer un pack</a>
-                        <a href="read-pack/{{ pack.id }}" class="card-link btn btn-success">Voir en détail ce pack</a>
+                        <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning">Modifier ce pack</a>
+                        <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger">supprimer ce pack</a>
+                        <a href="/create-pack/" class="card-link btn btn-primary">Créer un pack</a>
+                        <a href="/read-pack/{{ pack.id }}" class="card-link btn btn-success">Voir en détail ce pack</a>
                     </div>
                 </div>
             {% endfor %}
