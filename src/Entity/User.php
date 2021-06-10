@@ -4,13 +4,23 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
+use Symfony\Component\Security\Core\Encoder\PasswordHasherEncoder;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+
+
+
+
+
 
 
 /**
  *@ORM\Entity() 
  */
-class User {
+class User implements UserInterface{
+
+    
 
     /**
      * @ORM\Id()
@@ -19,69 +29,63 @@ class User {
      */
     private $id;
 
-     /**
-     * @Assert\NotBlank(message ="un nom ne doit pas etre vide")
+
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message ="le nom d'utilisateur ne doit pas etre vide")
      * @Assert\Length(
      *      min = 1,
-     *      max = 50,
-     *      minMessage = "Ce nom est trop court !",
-     *      maxMessage = "Ce nom est trop long !"
+     *      max = 30,
+     *      minMessage = "Ce pseudo est trop court !",
+     *      maxMessage = "Ce pseudo est trop long !"
      * )
-     * @ORM\Column(type="string")
      */
-    private $name;
+    private $username;
+
+
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
 
      /**
      * @ORM\Column(type="string")
-     * @Assert\Email(message ="votre '{{mail}}' n'est pas un mail valide !")
+     * @Assert\Email(message ="votre mail n'est pas un mail valide !")
      * @Assert\NotBlank(message = "le champ email ne doit pas etre vide !")
      */ 
     private $mail; 
     
      /**
+     * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message = "le mot de passe ne doit pas etre vide !")
+     * 
      */
     private $password; 
 
      /**
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message = "le champ adresse ne doit pas etre vide ")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $address; 
 
      /**
-     * @ORM\Column(type="string")
-     *  @Assert\NotBlank(message = "le code postale ne doit pas etre vide ")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $postalCode;
 
      /**
-     * @ORM\Column(type="string")
-     *  @Assert\NotBlank(message ="un nom ne doit pas etre vide")
-     *  @Assert\Length(
-     *      min = 1,
-     *      max = 50,
-     *      minMessage = "Ce nom est trop court !",
-     *      maxMessage = "Ce nom est trop long !"
-     * ) 
+     * @ORM\Column(type="string", nullable=true)
      */
     private $firstName;
 
      /**
-     * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message ="un nom ne doit pas etre vide")
-     * @Assert\Range(
-     *      min = 18,
-     *      max = 120,
-     *      notInRangeMessage = "Vous devez avoir entre {{ min }} et {{ max }} ans ",
-     * ) 
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $age; 
 
      /**
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message ="le numero de telphone ne doit pas etre vide")
+     * @ORM\Column(type="string", nullable=true)
      * @Assert\Length(
      *      min = 9,
      *      max = 19,
@@ -92,13 +96,12 @@ class User {
     private $tel;
 
      /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $pics; 
 
       /**
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message ="le champ ville ne doit pas etre vide"),
+     * @ORM\Column(type="string", nullable=true)
      */
     private $country;
 
@@ -119,9 +122,14 @@ class User {
      */
     private $comments;
 
-    public function __construct() {
+    private $passwordHasher;
+
+
+    public function __construct(UserPasswordHasher   $passwordHasher) {
         $this->solds = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->passwordHasher = $passwordHasher;
+     
     }
      
     public function getId()
@@ -136,21 +144,7 @@ class User {
 
         return $this;
     }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    
+ 
     public function getMail()
     {
         return $this->mail;
@@ -173,7 +167,7 @@ class User {
     
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = $this->passwordHasher->hashPassword($this, $password);
 
         return $this;
     }
@@ -365,4 +359,70 @@ class User {
 
         return $this;
     }
+
+    /**
+     * Get the value of username
+     */ 
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set the value of username
+     *
+     * @return  self
+     */ 
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of roles
+     */ 
+    public function getRoles()
+    {
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        
+        return array_unique($roles);
+    }
+
+    /**
+     * Set the value of roles
+     *
+     * @return  self
+     */ 
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+         * @see UserInterface
+         */
+        public function getSalt()
+        {
+                // not needed when using the "bcrypt" algorithm in security.yaml
+        }
+
+        /**
+         * @see UserInterface
+         */
+        public function eraseCredentials()
+        {
+                // If you store any temporary, sensitive data on the user, clear it here
+                // $this->plainPassword = null;
+        }
+
+        public function getUserIdentifier()
+        {
+            return $this->username;
+        }
 }

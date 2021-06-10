@@ -18,16 +18,9 @@ class UserType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class, ['label' => 'Prénom'])
-            ->add('name', TextType::class, ['label' => 'Nom'])
-            ->add('age', NumberType::class, ['label' => 'Age'])
-            ->add('mail', EmailType::class, ['label' => 'Adresse Email'])
-            ->add('password', PasswordType::class, ['label' => 'Mot de passe'])
-            ->add('address', TextType::class, ['label' => ' Adresse de residence'])
-            ->add('postalCode', NumberType::class, ['label' => 'Code postale'])
-            ->add('country', TextType::class, ['label' => 'Ville'])
-            ->add('tel', NumberType::class, ['label' => 'Téléphone'])
-            ->add('pics', UrlType::class, ['label' => 'Ajouter une photo de profil']);
+            ->add('username', TextType::class, ['label' => 'Pseudo'])
+            ->add('mail', TextType::class, ['label' => 'Email'])
+            ->add('password', PasswordType::class, ['label' => 'Mot de passe']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -36,5 +29,6 @@ class UserType extends AbstractType{
             'data_class' => User::class
         ]);
     }
+
 
 }
