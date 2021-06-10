@@ -54,7 +54,7 @@ class PackController extends AbstractController{
             $em->persist($pack);
             $em->flush();
 
-            return $this->redirectToRoute("read-allPack");
+            return $this->redirectToRoute("home");
         }
 
         return $this->render('pack/createPack.html.twig', [
