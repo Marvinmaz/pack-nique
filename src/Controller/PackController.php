@@ -97,7 +97,7 @@ class PackController extends AbstractController{
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute("read-allPack");
+            return $this->redirectToRoute("home");
         }
 
         return $this->render('pack/updatePack.html.twig', [
@@ -113,7 +113,7 @@ class PackController extends AbstractController{
         $em->remove($delete);
         $em->flush();
 
-        return $this->redirectToRoute("read-allPack");
+        return $this->redirectToRoute("home");
     }
 
     /**
