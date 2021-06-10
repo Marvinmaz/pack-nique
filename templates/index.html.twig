@@ -51,7 +51,11 @@
 		<main>
 			<div class="sana">
 			<header class="row tm-welcome-section">
-				<h2 class="col-12 text-center tm-section-title">Bienvenue à Pack Nique</h2>
+				<h2 class="col-12 text-center tm-section-title">Bienvenue à Pack Nique 
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+						{{ app.user.username}}
+					{% endif %}
+				</h2>
 				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
 			</header>
 			</div>

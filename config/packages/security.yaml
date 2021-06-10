@@ -5,7 +5,6 @@ security:
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -13,10 +12,12 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            form_login: 
-                login_path: login
+            form_login:
+                login_path: login 
                 check_path: login
-    
+            logout:
+                path: app_logout
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -29,8 +30,8 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
     providers:
-            # used to reload user from session & other features (e.g. switch_user)
-            app_user_provider:
-                entity:
-                    class: App\Entity\User
-                    property: username
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
