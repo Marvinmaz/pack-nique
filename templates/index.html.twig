@@ -52,7 +52,7 @@
 		<main>
 			<div class="sana">
 			<header class="row tm-welcome-section">
-				<h2 class="col-12 text-center tm-section-title">Bienvenue à Pack Nique</h2>
+				<h2 class="col-12 text-center tm-section-title">Bienvenue sur Pack Nique</h2>
 				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
 			</header>
 			</div>
@@ -70,6 +70,7 @@
 			</div>
 		
 			<div class="content-width">
+			
 				<div class="slideshow">
 				  <!-- Slideshow Items -->
 				  <div class="slideshow-items">
@@ -133,19 +134,20 @@
 				  </div>
 				</div>
 			  </div>
+			
 
-
+			<!-- Trier -->
 			  	<div class="trier">
-			<select class="form-select" aria-label="Default select example">
-				<option selected>Trier par</option>
-				<option value="1">Prix ordre croissance</option>
-				<option value="2">Prix ordre decroissance</option>
-				<option value="3">Avis</option>
-				<option value="3">Vente</option>
-			</select>
-			</div>
-
-		<!-- Gallery -->
+					<select class="form-select" aria-label="Default select example">
+						<option selected>Trier par</option>
+						<option value="1">Prix ordre croissance</option>
+						<option value="2">Prix ordre decroissance</option>
+						<option value="3">Avis</option>
+						<option value="3">Vente</option>
+					</select>
+				</div>
+			<!-- Trier End -->
+			<!-- Gallery -->
 			<div class="row tm-gallery">
 				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
 				 {% for pack in packs %} 
@@ -179,7 +181,7 @@
 					
 					{% endfor %}
 				</div> <!-- gallery page 1 -->
-
+			</div>
 		</main>
 
 		<footer class="tm-footer text-center">
