@@ -17,7 +17,27 @@
                 <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger">supprimer ce pack</a>
                 <a href="/create-pack/" class="card-link btn btn-primary">Créer un pack</a>
                 <a href="/read-allpack/" class="card-link btn btn-success">voir tous les packs</a>
+
             </div>
         </div>
+            <div>
+                <ul>
+                    {% for comment in comments %}
+                        <li>
+                            <b> @ {{comment.user.username}} :</b>                
+                            <p> {{ comment.content}}. ({{ comment.createdAt|date("d/m/Y") }})</p>
+                            <p> Note: {{ comment.note }}/5 
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <a href="/update-comment/{{comment.id}}" class="card-link"><i class="fas fa-edit" style="color: blue; "></i></a>
+                                    <a href="/delete-comment/{{comment.id}}" class="card-link"><i class="fas fa-trash" style="color: red; "></i></a>
+                                    <a href="/create-comment/{{comment.id}}" class="card-link btn btn-white"><i class="far fa-plus-square" style="color: green; "></i></a>
+                                {% endif %}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
     </div>
+
+
 {% endblock %}

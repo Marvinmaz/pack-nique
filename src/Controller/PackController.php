@@ -97,7 +97,7 @@ class PackController extends AbstractController{
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute("read-allPack");
+            return $this->redirectToRoute("home");
         }
 
         return $this->render('pack/updatePack.html.twig', [
@@ -113,7 +113,7 @@ class PackController extends AbstractController{
         $em->remove($delete);
         $em->flush();
 
-        return $this->redirectToRoute("read-allPack");
+        return $this->redirectToRoute("home");
     }
 
     /**
@@ -122,8 +122,7 @@ class PackController extends AbstractController{
     public function readAll(): Response{
         $repository = $this->getDoctrine()->getRepository(Pack::class);
         $packs = $repository->findAll();
-
-        return $this->render("/index.html.twig", [
+        return $this->render("index.html.twig", [
             "packs" => $packs
         ]);
     }
