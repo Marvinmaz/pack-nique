@@ -5,6 +5,7 @@
 		<link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" />  
 		<link href="{{ asset('assets/css/templatemo-style.css') }}" rel="stylesheet" />
 		<link href="{{ asset('assets/css/slideshow.css') }}" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 		<link rel="icon" href="{{ asset('assets/img/logo3.png') }}">
 	{% endblock %}
@@ -53,7 +54,11 @@
 		<main>
 			<div class="sana">
 			<header class="row tm-welcome-section">
+<<<<<<< HEAD
 				<h2 class="col-12 text-center tm-section-title">Bienvenue àssss Pack Nique</h2>
+=======
+				<h2 class="col-12 text-center tm-section-title">Bienvenue sur Pack Nique</h2>
+>>>>>>> 2e97b35 (version 3)
 				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
 			</header>
 			</div>
@@ -71,6 +76,7 @@
 			</div>
 		
 			<div class="content-width">
+			
 				<div class="slideshow">
 				  <!-- Slideshow Items -->
 				  <div class="slideshow-items">
@@ -134,161 +140,54 @@
 				  </div>
 				</div>
 			  </div>
+			
 
-
+			<!-- Trier -->
 			  	<div class="trier">
-			<select class="form-select" aria-label="Default select example">
-				<option selected>Trier par</option>
-				<option value="1">Prix ordre croissance</option>
-				<option value="2">Prix ordre decroissance</option>
-				<option value="3">Avis</option>
-				<option value="3">Vente</option>
-			</select>
-			</div>
-
+					<select class="form-select" aria-label="Default select example">
+						<option selected>Trier par</option>
+						<option value="1">Prix ordre croissance</option>
+						<option value="2">Prix ordre decroissance</option>
+						<option value="3">Avis</option>
+						<option value="3">Vente</option>
+					</select>
+				</div>
+			<!-- Trier End -->
 			<!-- Gallery -->
 			<div class="row tm-gallery">
-				<!-- gallery page 1 -->
 				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+				 {% for pack in packs %} 
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="{{ asset('assets/img//gallery/08.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
 							<figcaption>
-								<h4 class="tm-gallery-title">Donec porta consequat</h4>
-							
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$15</p>
-							</figcaption>
-						</figure>
+								<h5 class="card-title">{{ pack.name }}</h5> 
+								<p class="card-text">{{ pack.content }}</p>
+								<p class="card-text">{{ pack.price }} €</p>
+							 <div class="sana2">
+								<fieldset class="rating">
+									<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+									<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+									<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+									<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+									<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+								</fieldset>
+								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								<i href="/update-pack/{{ pack.id }}" class="fas fa-edit"></i>
+								<i class="fas fa-shopping-cart"></i>
+								{% endif %}
+								</figcaption>
+								
+								</figure>
 					</article>
+					
+					{% endfor %}
 				</div> <!-- gallery page 1 -->
-				
-				<!-- gallery page 2 -->
-				<div id="tm-gallery-page-salad" class="tm-gallery-page hidden">
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/04.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Salad Menu One</h4>
-								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-								<p class="tm-gallery-price">$25</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/03.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Second Title Salad</h4>
-								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-								<p class="tm-gallery-price">$30</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/05.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Third Salad Item</h4>
-								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-								<p class="tm-gallery-price">$45</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/01.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Superior Salad</h4>
-								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-								<p class="tm-gallery-price">$50</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/08.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Sed ultricies dui</h4>
-								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-								<p class="tm-gallery-price">$55 / $60</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/07.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
-								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
-								<p class="tm-gallery-price">$75</p>
-							</figcaption>
-						</figure>
-					</article>
-				</div> <!-- gallery page 2 -->
-				
-				<!-- gallery page 3 -->
-				<div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/08.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Noodle One</h4>
-								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<p class="tm-gallery-price">$12.50</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/07.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Noodle Second</h4>
-								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<p class="tm-gallery-price">$15.50</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/06.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Third Soft Noodle</h4>
-								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<p class="tm-gallery-price">$20.50</p>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-							<img src="{{ asset('assets/img//gallery/05.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
-								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<p class="tm-gallery-price">$30.25</p>
-							</figcaption>
-						</figure>
-					</article>
-			
-			
-
-				</div> <!-- gallery page 3 -->
-			</div>
-			<div class="tm-section tm-container-inner">
-				<div class="row">
-					<div class="col-md-6">
-						<figure class="tm-description-figure">
-							<img src="{{ asset('assets/img//gallery/01.jpg')}}" alt="Image" class="img-fluid" />
-						</figure>
-					</div>
-					<div class="col-md-6">
-						<div class="tm-description-box"> 
-							<h4 class="tm-gallery-title">Maecenasneque</h4>
-							<p class="tm-mb-45">Redistributing a downloadable ZIP file on any template collection site is strictly prohibited. You will need to <a rel="nofollow" href="https://templatemo.com/contact">talk to us</a> for additional permissions about our templates. Thank you.</p>
-							<a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
-						</div>
-					</div>
-				</div>
 			</div>
 		</main>
 

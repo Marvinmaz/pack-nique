@@ -284,6 +284,9 @@
     "symfony/orm-pack": {
         "version": "v2.1.0"
     },
+    "symfony/password-hasher": {
+        "version": "v5.3.0"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.0"
     },
@@ -335,6 +338,9 @@
     },
     "symfony/runtime": {
         "version": "v5.3.0"
+    },
+    "symfony/security-core": {
+        "version": "v5.3.1"
     },
     "symfony/service-contracts": {
         "version": "v2.4.0"
