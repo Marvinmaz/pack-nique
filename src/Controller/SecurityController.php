@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use  Symfony\Component\Security\Core\User\UserInterface;
@@ -27,7 +28,8 @@ class SecurityController extends AbstractController{
     /**
      * @Route("/logout", name="app_logout")
      */
-    public function logout(){
+    public function logout(SessionInterface $session){
+        $session->clear();
         return $this->redirectToRoute("home");
     }
 }
