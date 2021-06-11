@@ -135,4 +135,12 @@ class PackController extends AbstractController{
             "pack" => $pack
         ]);
     }
+
+
+    /**
+     * @Route("/view-pack", name="viewPack")
+     */
+    public function viewPack(): Response{
+        return $this->render('pack/view.html.twig');
+    }
 }
