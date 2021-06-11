@@ -13,10 +13,10 @@
                 <h5 class="card-title">{{ pack.name }}</h5>                       
                 <p class="card-text">{{ pack.content }}</p>
                 <p class="card-text">{{ pack.price }} €</p>
-                <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning">Modifier ce pack</a>
-                <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger">supprimer ce pack</a>
-                <a href="/create-pack/" class="card-link btn btn-primary">Créer un pack</a>
-                <a href="/read-allpack/" class="card-link btn btn-success">voir tous les packs</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
+                <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+                {% endif %}
             </div>
         </div>
     </div>
