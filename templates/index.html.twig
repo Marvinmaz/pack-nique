@@ -11,9 +11,7 @@
 	{% endblock %}
 
 	{% block javascripts %}
-			<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-			<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
-			<script src="{{ asset('assets/js/slideshow.js') }}"></script>
+		{{parent()}}
 		<script>
 			$(document).ready(function(){
 				// Handle click on paging links
@@ -54,11 +52,7 @@
 		<main>
 			<div class="sana">
 			<header class="row tm-welcome-section">
-<<<<<<< HEAD
-				<h2 class="col-12 text-center tm-section-title">Bienvenue àssss Pack Nique</h2>
-=======
 				<h2 class="col-12 text-center tm-section-title">Bienvenue sur Pack Nique</h2>
->>>>>>> 2e97b35 (version 3)
 				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
 			</header>
 			</div>
@@ -177,10 +171,9 @@
 									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
 								</fieldset>
-								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-								<i href="/update-pack/{{ pack.id }}" class="fas fa-edit"></i>
+								<i class="fas fa-comment"></i>
 								<i class="fas fa-shopping-cart"></i>
-								{% endif %}
+								
 								</figcaption>
 								
 								</figure>
