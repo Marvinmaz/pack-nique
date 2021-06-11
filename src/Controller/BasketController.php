@@ -57,7 +57,6 @@ class BasketController extends AbstractController {
             $basket[$id] = 1;
         }
 
-
         $session->set('basket', $basket);
 
         return $this->redirectToRoute("cart_index");
@@ -76,10 +75,6 @@ class BasketController extends AbstractController {
         }
 
         $session->set('basket', $basket);
-
-        // $em = $this->getDoctrine()->getManager();
-        // $em->remove($delete);
-        // $em->flush();
 
         return $this->redirectToRoute("cart_index");
     }
