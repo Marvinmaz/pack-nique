@@ -5,6 +5,7 @@
 		<link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" />  
 		<link href="{{ asset('assets/css/templatemo-style.css') }}" rel="stylesheet" />
 		<link href="{{ asset('assets/css/slideshow.css') }}" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 		<link rel="icon" href="{{ asset('assets/img/logo3.png') }}">
 	{% endblock %}
@@ -144,34 +145,39 @@
 			</select>
 			</div>
 
-			<!-- Gallery -->
+		<!-- Gallery -->
 			<div class="row tm-gallery">
-				<!-- gallery page 1 -->
 				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+				 {% for pack in packs %} 
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
-							<img src="{{ asset('assets/img//gallery/01.jpg')}}" alt="Image" class="img-fluid tm-gallery-img" />
+							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
 							<figcaption>
-								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
-								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
-								<p class="tm-gallery-price">$45 / $55</p>
-							</figcaption>
-						</figure>
+								<h5 class="card-title">{{ pack.name }}</h5> 
+								<p class="card-text">{{ pack.content }}</p>
+								<p class="card-text">{{ pack.price }} €</p>
+							 <div class="sana2">
+								<fieldset class="rating">
+									<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+									<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+									<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+									<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+									<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+								</fieldset>
+								<i class="fas fa-comment"></i>
+								<i class="fas fa-shopping-cart"></i>
+								
+								</figcaption>
+								
+								</figure>
 					</article>
-            {% for pack in packs %}                 
-                <div class="card col-3 mx-2 my-2">
-                    <div class="card-body">                           
-                        <img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail">
-                        <h5 class="card-title">{{ pack.name }}</h5>                       
-                        <p class="card-text">{{ pack.content }}</p>
-                        <p class="card-text">{{ pack.price }} €</p>
-                        <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning">Modifier ce pack</a>
-                        <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger">supprimer ce pack</a>
-                        <a href="/create-pack/" class="card-link btn btn-primary">Créer un pack</a>
-                        <a href="/read-pack/{{ pack.id }}" class="card-link btn btn-success">Voir en détail ce pack</a>
-                    </div>
-                </div>
-            {% endfor %}
+					
+					{% endfor %}
 				</div> <!-- gallery page 1 -->
 
 		</main>
