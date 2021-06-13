@@ -10,12 +10,15 @@
             <div style="background-color: black; color: white; width: 100%; text-align: center;" >
                 <p>Créer un compte</p>
             </div>
+            <div style="padding: 10px;">
             {{ form_start(form, {"attr":{'novalidate': 'novalidate'}}) }}
                 {{ form_row(form.username) }}
                 {{ form_row(form.mail) }}
                 {{ form_row(form.password) }}
-                <input type="submit" value="GO" class="btn btn-primary w-100" style="border-radius: 0%;">
+                <input type="submit" value="GO" class="btn btn-primary w-100" style="border-radius: 100px;">
             {{ form_end(form) }}
+            </div>
+            <p style="text-align: center;">J'ai deja un compte ! |<a href="/login"> Me connecter</a></p>
         </div>
     </div>
 </div>

@@ -1,14 +1,24 @@
 {% extends 'base.html.twig' %}
+	{% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />  
+		<link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" />  
+		<link href="{{ asset('assets/css/templatemo-style.css') }}" rel="stylesheet" />
+		<link href="{{ asset('assets/css/slideshow.css') }}" rel="stylesheet" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<link rel="icon" href="{{ asset('assets/img/logo3.png') }}">
+		<link href="{{ asset('assets/css/manager.css') }}" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+    {% endblock %}
 {% block body %}
     {{ parent() }}
 
     {% set route = app.request.get("_route") %}
 
-    <h2> Créer un Pack de produits / GESTION ADMINISTRATEUR</h2>
-    
-    <div class = "container">
-        <div class = "row">
-            <div class = "col-5">
+    <div class="d-flex justify-content-center mt-4">
+        <div>
+        <h2 style="color:red "> Créer un Pack de produits / GESTION ADMINISTRATEUR</h2>    
+            <div class="col-5">
                 {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
                     {{ form_row(form.name) }}
                     {{ form_row(form.picture) }}
@@ -19,7 +29,7 @@
                 {{ form_end(form) }}
             </div>
         </div>
-    </div>
+    </div>    
 {% endblock %}
 
 {% block javascripts %}
