@@ -16,8 +16,10 @@
     {% set route = app.request.get("_route") %}
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             {% if items | length > 0 %}
+            <div class="d-flex">
                 <h2> Votre panier</h2>
-                
+                <a href="#" class="btn btn-success ms-5">Commander <i class="fas fa-cart-plus"></i></a>
+            </div>
                     <table class="table">
                         <thead>
                             <tr>
