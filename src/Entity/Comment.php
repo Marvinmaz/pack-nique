@@ -52,6 +52,16 @@ class Comment {
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $pack_id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $user_id;
+
 
 
     /**
@@ -171,6 +181,30 @@ class Comment {
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getPackId(): ?int
+    {
+        return $this->pack_id;
+    }
+
+    public function setPackId(int $pack_id): self
+    {
+        $this->pack_id = $pack_id;
+
+        return $this;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(int $user_id): self
+    {
+        $this->user_id = $user_id;
 
         return $this;
     }

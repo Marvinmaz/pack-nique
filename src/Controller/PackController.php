@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Pack;
+use App\Entity\Comment;
 use App\Form\PackType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -130,9 +131,27 @@ class PackController extends AbstractController{
     /**
      * @Route("/read-pack/{id}", name="readPack")
      */
-    public function read(Pack $pack): Response{
+    public function read(Request $request, Pack $pack): Response{
+        $form = $this->createForm(PackType::class, $pack);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $pack->setSales_volume(0);
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($pack);
+            $em->flush();
+        }
+        $repository = $this->getDoctrine()->getRepository(Pack::class);
+        $packs = $repository->findAll();
+        $pack_id = $pack->getId();
+        $repository2 = $this->getDoctrine()->getRepository(Comment::class);
+        $comments = $repository2->findBy(["pack_id" => $pack_id]);
+
         return $this->render("pack/readPack.html.twig", [
-            "pack" => $pack
+            "pack" => $pack,
+            "packs" => $packs,
+            "comments" => $comments
         ]);
     }
 

@@ -54,7 +54,8 @@ class Pack {
      */ 
     private $categories; 
     const STANDARD_CATEGORIES = [
-        'vegan' => 'vegan', 'végétarien' => 'végétarien', 'halal' => 'halal', 'anniversaire' => 'anniversaire', 'réunion' => 'réunion', 'pique-nique' => 'pique-nique', 'duo' => 'duo', 'romantique' => 'romantique', 'soirée' => 'soirée', 'bbq' => 'bbq'];
+        'vegan' => 'vegan', 'végétarien' => 'végétarien', 'halal' => 'halal', 'anniversaire' => 'anniversaire', 
+        'réunion' => 'réunion', 'pique-nique' => 'pique-nique', 'duo' => 'duo', 'romantique' => 'romantique', 'soirée' => 'soirée', 'bbq' => 'bbq'];
 
 
     /**
