@@ -143,8 +143,6 @@ class PackController extends AbstractController{
             $entityManager = $this->getDoctrine()->getManager();
 
             $comment = new Comment();
-            // echo " request is " . $request . "<br>";
-            echo "pack id: " . $pack_id;
             $comment->setContent($form->getData()['Comment']);
             $comment->setPackId($pack_id);
             $comment->setUserId(100);
@@ -158,7 +156,6 @@ class PackController extends AbstractController{
             $entityManager->flush();
         }
         $repository = $this->getDoctrine()->getRepository(Pack::class);
-        $packs = $repository->findAll();
         $pack_id = $pack->getId();
 
         $repository = $this->getDoctrine()->getRepository(Comment::class);
@@ -167,7 +164,6 @@ class PackController extends AbstractController{
         return $this->render("pack/readPack.html.twig", [
             'form' => $form->createView(),
             "pack" => $pack,
-            "packs" => $packs,
             "comments" => $comments
         ]);
     }
