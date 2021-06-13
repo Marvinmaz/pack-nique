@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Pack;
 use App\Entity\Comment;
 use App\Form\PackType;
+use App\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -132,23 +133,39 @@ class PackController extends AbstractController{
      * @Route("/read-pack/{id}", name="readPack")
      */
     public function read(Request $request, Pack $pack): Response{
-        $form = $this->createForm(PackType::class, $pack);
+
+        $form = $this->createForm(CommentType::class);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $pack->setSales_volume(0);
+            $pack_id = $pack->getId();
+            // you can fetch the EntityManager via $this->getDoctrine()
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $comment = new Comment();
+            // echo " request is " . $request . "<br>";
+            echo "pack id: " . $pack_id;
+            $comment->setContent($form->getData()['Comment']);
+            $comment->setPackId($pack_id);
+            $comment->setUserId(100);
+            $comment->setNote(12);
+            $comment->setCreatedAt(new \DateTime());
             
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($pack);
-            $em->flush();
+            // tell Doctrine you want to (eventually) save the Comment (no queries yet)
+            $entityManager->persist($comment);
+
+            // actually executes the queries (i.e. the INSERT query)
+            $entityManager->flush();
         }
         $repository = $this->getDoctrine()->getRepository(Pack::class);
         $packs = $repository->findAll();
         $pack_id = $pack->getId();
-        $repository2 = $this->getDoctrine()->getRepository(Comment::class);
-        $comments = $repository2->findBy(["pack_id" => $pack_id]);
+
+        $repository = $this->getDoctrine()->getRepository(Comment::class);
+        $comments = $repository->findBy(["pack_id" => $pack_id]);
 
         return $this->render("pack/readPack.html.twig", [
+            'form' => $form->createView(),
             "pack" => $pack,
             "packs" => $packs,
             "comments" => $comments
