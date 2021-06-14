@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -45,12 +46,13 @@ class Sold {
 
     // 1:1
     /**
-    * @ORM\OneToOne(targetEntity="App\Entity\Basket")
+    * @ORM\OneToMany(targetEntity="App\Entity\Pack", mappedBy="sold")
     */
-    private $basket;
+    private $packs;
 
-
-
+    public function __construct() {
+        $this->packs = new ArrayCollection();
+    }
 
     /**
      * Get the value of date
@@ -113,21 +115,21 @@ class Sold {
     }
 
     /**
-     * Get the value of basket
+     * Get the value of sold
      */ 
-    public function getBasket()
+    public function getSold()
     {
-        return $this->basket;
+        return $this->sold;
     }
 
     /**
-     * Set the value of basket
+     * Set the value of sold
      *
      * @return  self
      */ 
-    public function setBasket($basket)
+    public function setSold($sold)
     {
-        $this->basket = $basket;
+        $this->sold = $sold;
 
         return $this;
     }
@@ -188,6 +190,26 @@ class Sold {
     public function setInProgress($inProgress)
     {
         $this->inProgress = $inProgress;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of packs
+     */ 
+    public function getPacks()
+    {
+        return $this->packs;
+    }
+
+    /**
+     * Set the value of packs
+     *
+     * @return  self
+     */ 
+    public function setPacks($packs)
+    {
+        $this->packs = $packs;
 
         return $this;
     }

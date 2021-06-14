@@ -30,9 +30,11 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/contact" > <i class="fas fa-address-book"  style="color: grey;"></i> Contact</a>
                   </li>
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart" style="color: orange;"></i> Panier</a>
+                    <a class="nav-link" href="/basket"><i class="fas fa-shopping-cart" style="color: orange;"></i> Panier</a>
                   </li>
+                  {% endif %}
                   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                       <li class="nav-item">
                         <a class="nav-link" href="/logout"> <i class="fas fa-power-off" style="color: red;"></i> deconnexion</a>
@@ -53,6 +55,13 @@
                     <a class="nav-link" href="/create-account"><i class="fas fa-user" style="color: royalblue;"></i> Pas encore de compte ?</a>
                   </li>
                   {% endif %}
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  {% if app.user.isAdmin(1) %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/create-pack"><i class="fas fa-plus-circle" style="color: #81ecec"></i> Créer un pack</a>
+                  </li>
+                  {% endif %}
+                  {% endif %}  
                 </ul>
               </div>
             </div>

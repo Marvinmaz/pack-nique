@@ -5,7 +5,7 @@
 		<link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" />  
 		<link href="{{ asset('assets/css/templatemo-style.css') }}" rel="stylesheet" />
 		<link href="{{ asset('assets/css/slideshow.css') }}" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 		<link rel="icon" href="{{ asset('assets/img/logo3.png') }}">
 	{% endblock %}
@@ -160,8 +160,14 @@
 							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
 							<figcaption>
 								<h5 class="card-title">{{ pack.name }}</h5> 
-								<p class="card-text">{{ pack.content }}</p>
+								<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
 								<p class="card-text">{{ pack.price }} €</p>
+								{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+								{% if app.user.isAdmin(1) %}
+									<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
+									<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+								{% endif %}
+								{% endif %}
 							 <div class="sana2">
 								<fieldset class="rating">
 									<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -175,15 +181,14 @@
 									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
 								</fieldset>
-								<i class="fas fa-comment"></i>
-								<i class="fas fa-shopping-cart"></i>
+								<a href="/read-pack/{{ pack.id }}"><i class="fas fa-comment"></i></a>
+								<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart"></i></a>
 								
 								</figcaption>
 								
 								</figure>
 					</article>
-					
-					{% endfor %}
+            	 {% endfor %}
 				</div> <!-- gallery page 1 -->
 			</div>
 		</main>

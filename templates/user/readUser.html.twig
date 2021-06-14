@@ -11,12 +11,12 @@
             </div>
             {{form_start(form, {'attr':{'novalidate':'novalidate'}}) }}  
                 {{form_row(form.firstname)}}  
+                {{form_row(form.name)}}  
                 {{form_row(form.age)}}  
                 {{form_row(form.tel)}}  
                 {{form_row(form.address)}}  
                 {{form_row(form.postalcode)}}  
                 {{form_row(form.country)}}  
-                {{form_row(form.pics)}}  
                 <input type="submit"  class="btn btn-primary w-100" value="envoyer">
             {{form_end(form)}}
         </div>

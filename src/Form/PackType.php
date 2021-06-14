@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PackType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -34,7 +35,7 @@ class PackType extends AbstractType{
                 'label' => 'Catégories',
                 'choices' => Pack::STANDARD_CATEGORIES,
             ])
-            ->add('content', TextType::class, ['label' => 'Contenu']);
+            ->add('content', TextareaType::class, ['label' => 'Contenu']);
     }
 
     public function configureOptions(OptionsResolver $resolver){
