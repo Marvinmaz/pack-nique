@@ -53,31 +53,31 @@ class UserController extends AbstractController{
             if ($form->isSubmitted() && $form->isValid()) {
                 $this->getDoctrine()->getManager()->flush();
                 // IMAGE EN CONSTRUCTION    
-                // $picture = $form->get('pics')->getData();
+                $picture = $form->get('pics')->getData();
     
-                // // this condition is needed because the 'picture' field is not required
-                // // so the picture file must be processed only when a file is uploaded
-                // if($picture){
-                //     $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
-                //     // this is needed to safely include the file name as part of the URL
-                //     $safeFilename = $slugger->slug($originalFilename);
-                //     $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();
+                // this condition is needed because the 'picture' field is not required
+                // so the picture file must be processed only when a file is uploaded
+                if($picture){
+                    $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();
     
-                //     // Move the file to the directory where brochures are stored
-                //     try {
-                //         $picture->move(
-                //             $this->getParameter('images'),
-                //             $newFilename
-                //         );
-                //     } catch (FileException $e) {
-                //         dump($e);
-                //         // ... handle exception if something happens during file upload
-                //     }
+                    // Move the file to the directory where brochures are stored
+                    try {
+                        $picture->move(
+                            $this->getParameter('images'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        dump($e);
+                        // ... handle exception if something happens during file upload
+                    }
     
-                //     // updates the 'pictureFilename' property to store the PDF file name
-                //     // instead of its contents
-                //     $user->setPics($newFilename);
-                // }
+                    // updates the 'pictureFilename' property to store the PDF file name
+                    // instead of its contents
+                    $user->setPics($newFilename);
+                }
                 return $this->redirectToRoute("home");
             }
             return $this->render("user/readUser.html.twig", [
