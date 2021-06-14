@@ -144,8 +144,8 @@ class PackController extends AbstractController{
 
             $comment = new Comment();
             $comment->setContent($form->getData()['Comment']);
-            $comment->setPackId($pack_id);
-            $comment->setUserId(100);
+            $comment->setPack($pack);
+            $comment->setUser($this->getUser());
             $comment->setNote(12);
             $comment->setCreatedAt(new \DateTime());
             
@@ -175,4 +175,16 @@ class PackController extends AbstractController{
     public function viewPack(): Response{
         return $this->render('pack/view.html.twig');
     }
+
+    /**
+     * @Route("/Categories/{category}", name="annivarsaire")
+     */
+    public function viewCategory(): Response{
+        $repository = $this->getDoctrine()->getRepository(Pack::class);
+        $packs=$repository->findAll();
+        return $this->render("pack/categories.html.twig", [
+            'packs' => $packs 
+        ]);
+    }
+
 }
