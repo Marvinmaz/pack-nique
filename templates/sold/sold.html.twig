@@ -13,6 +13,28 @@
 {% block body %}
     {{ parent() }}
 
-    {{ form(form) }}
+<div class="container col-6">
+	<div class="mt-5">
 
+			{{ form_start(form) }}
+				{{ form_row(form) }}
+			{{ form_end(form) }}
+	</div>
+	<div>
+		<h5>Le montant de la commande est de {{'totalPrice'}} €</h5>
+	</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            window.addEventListener("load", event => {
+                $(".custom-file-input").on("change", function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+            });
+        </script>
 {% endblock %}
