@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Basket;
 use App\Entity\Pack;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

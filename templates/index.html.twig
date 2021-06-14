@@ -162,9 +162,11 @@
 								<h5 class="card-title">{{ pack.name }}</h5> 
 								<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
 								<p class="card-text">{{ pack.price }} €</p>
-								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+								{% if app.user.isAdmin(1) %}
 									<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
 									<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+								{% endif %}
 								{% endif %}
 							 <div class="sana2">
 								<fieldset class="rating">

@@ -56,11 +56,12 @@
                   </li>
                   {% endif %}
                   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  {% if app.user.isAdmin(1) %}
                   <li class="nav-item">
                     <a class="nav-link" href="/create-pack"><i class="fas fa-plus-circle" style="color: #81ecec"></i> Créer un pack</a>
                   </li>
                   {% endif %}
-  
+                  {% endif %}  
                 </ul>
               </div>
             </div>

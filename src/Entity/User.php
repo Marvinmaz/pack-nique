@@ -9,12 +9,6 @@ use Symfony\Component\Security\Core\Encoder\PasswordHasherEncoder;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
-
-
-
-
-
 /**
  *@ORM\Entity() 
  */
@@ -80,6 +74,12 @@ class User implements UserInterface{
     private $firstName;
 
      /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $name;
+
+
+     /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $age; 
@@ -93,12 +93,7 @@ class User implements UserInterface{
      *      maxMessage = "le numero de telephone est trop long !",
      * ) 
      */
-    private $tel;
-
-     /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $pics; 
+    private $tel; 
 
       /**
      * @ORM\Column(type="string", nullable=true)
@@ -223,19 +218,6 @@ class User implements UserInterface{
     public function setTel($tel)
     {
         $this->tel = $tel;
-
-        return $this;
-    }
-
-    public function getPics()
-    {
-        return $this->pics;
-    }
-
-  
-    public function setPics($pics)
-    {
-        $this->pics = $pics;
 
         return $this;
     }
@@ -424,5 +406,25 @@ class User implements UserInterface{
         public function getUserIdentifier()
         {
             return $this->username;
+        }
+
+        /**
+         * Get the value of name
+         */ 
+        public function getName()
+        {
+            return $this->name;
+        }
+
+        /**
+         * Set the value of name
+         *
+         * @return  self
+         */ 
+        public function setName($name)
+        {
+            $this->name = $name;
+
+            return $this;
         }
 }
