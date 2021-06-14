@@ -26,7 +26,7 @@ class CommentController extends AbstractController{
             $date = new \DateTime();
             $comment->setCreatedAt($date);
             $comment->setPack($pack);
-            $comment->setUser($user);
+            $comment->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();
