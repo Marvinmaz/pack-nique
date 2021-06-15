@@ -20,12 +20,11 @@ class OrderController extends AbstractController{
         $sold->setUser($this->getUser());
         $sold->setInProgress(0);
         $sold->setCreatedAt(new \DateTime());
-        $sold->setCode("reduc");
         $em = $this->getDoctrine()->getManager();
         $em->persist($sold);
         $em->flush();
         $session->set('basket', []);
-
+        $this->addFlash("merci", "Votre commande a bien été passée, merci !");
         return $this->redirectToRoute("home");
     }
 }
