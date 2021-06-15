@@ -23,6 +23,7 @@ class SoldController extends AbstractController{
         if ($form->isSubmitted() && $form->isValid()){
             if ($sold->getCode() === "reduc") {
                 $totalPrice *= 4/5;
+                $session->set("totalPrice", $totalPrice);
             }
         }
         return $this-> render('sold/sold.html.twig', [

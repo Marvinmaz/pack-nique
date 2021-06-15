@@ -28,9 +28,7 @@ class Sold {
      */ 
     private $createdAt;
 
-    /**
-     * @ORM\Column(type="string")
-     */ 
+
     private $code;
 
      /**
