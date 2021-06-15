@@ -28,9 +28,7 @@ class Sold {
      */ 
     private $createdAt;
 
-    /**
-     * @ORM\Column(type="string")
-     */ 
+
     private $code;
 
      /**
@@ -38,13 +36,13 @@ class Sold {
      */ 
     private $inProgress;
 
-    // 1:1
+    // N : 0
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="solds")
      */
     private $user;
 
-    // 1:1
+    // 0 : N
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Pack", mappedBy="sold")
     */

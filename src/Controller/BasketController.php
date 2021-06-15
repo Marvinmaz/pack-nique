@@ -35,6 +35,7 @@ class BasketController extends AbstractController {
             $totalItem = $item['pack']->getPrice() * $item['quantity'];
             $total += $totalItem;
         }
+        $session->set("totalPrice", $total);
 
         return $this->render('basket/basket.html.twig', [
             'items' => $basketWithData,
