@@ -171,7 +171,7 @@ s0.parentNode.insertBefore(s1,s0);
 				 {% for pack in packs %} 
                     {% set currentPath = path(app.request.attributes.get('_route'),
                         app.request.attributes.get('_route_params')) %}
-                    {% if pack.categories == currentPath %} 
+                    {% if pack.categories is same as(category) %} 
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
 							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
