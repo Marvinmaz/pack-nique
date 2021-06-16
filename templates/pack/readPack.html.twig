@@ -11,10 +11,10 @@
     {{ parent() }}
 
     {% set route = app.request.get("_route") %}
-    <h2> Voir un Pack de produits</h2>
-    </div>
-    <div class="container d-flex" >
-        <div class="card" style="width: 18rem; height: 25rem;">
+ <div class="container1">
+    <div class="container2">
+        
+        <div class="card">
             <div class="card-body">
                 <img src="/uploads/images/{{ pack.picture }}" class="card-img-top" alt="...">
                 <h5 class="card-title">{{ pack.name }}</h5>                       
@@ -29,13 +29,28 @@
                 {% endif %}
             </div>
         </div>
-            <div>
-                <ul>
-                    {% for comment in comments %}
-                        <li>
-                            <b> @ {{comment.user.username}} :</b>                
-                            <p> {{ comment.content}}. ({{ comment.createdAt|date("d/m/Y") }})</p>
-                            {% if comment.note == 5 %}
+    </div>
+    
+       
+    
+    <div class="container3">
+    <div class="container mt-1 d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <ul class="list-unstyled">
+                        <!--THIRD LIST ITEM-->
+                        {% for comment in comments %}
+                        <li class="media"> <span class="round"><img src="https://img.icons8.com/office/100/000000/user-group-man-man--v1.png" class="align-self-start mr-3"></span>
+                            <div class="media-body">
+                                <div class="row d-flex">
+                                    <h6 class="user">{{comment.user.username}} </h6>
+                                    <div class="ml-auto">
+                                        <p class="text">{{ comment.createdAt|date("d/m/Y") }}</p>
+                                    </div>
+                                </div>
+                                <p class="text mb-2">{{ comment.content}}</p>
+                                {% if comment.note == 5 %}
                                 <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
                             {% endif %}
                             {% if comment.note == 4 %}
@@ -60,5 +75,13 @@
                     {% endfor %}
                 </ul>
             </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 {% endblock %}
