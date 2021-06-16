@@ -77,12 +77,16 @@ s0.parentNode.insertBefore(s1,s0);
 			<div class="tm-paging-links">
 				<nav>
 					<ul>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link active">Anniversaire</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Romantique</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Vegan</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">végétarien</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Halal</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Barbeque</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Réunion'"><a class="tm-paging-link active">Réunion</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/pique-nique'"><a class="tm-paging-link">Pique-nique</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Duo'"><a class="tm-paging-link">Duo</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Soirée'"><a class="tm-paging-link">Soirée</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Romantique'"><a class="tm-paging-link">Romantique</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Anniversaire'"><a class="tm-paging-link">Anniversaire</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Vegan'"><a class="tm-paging-link">Vegan</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/végétarien'"><a class="tm-paging-link">végétarien</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Halal'"><a class="tm-paging-link">Halal</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Barbeque'"><a class="tm-paging-link">Barbeque</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -171,7 +175,7 @@ s0.parentNode.insertBefore(s1,s0);
 				 {% for pack in packs %} 
                     {% set currentPath = path(app.request.attributes.get('_route'),
                         app.request.attributes.get('_route_params')) %}
-                    {% if pack.categories is same as(category) %} 
+                    {% if category in pack.categories %} 
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
 							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >

@@ -177,15 +177,12 @@ class PackController extends AbstractController{
     }
 
     /**
-     * @Route("/categories/{category}", name="categories")
-     * @Route("/Categories/{Category}", name="categories")
+     * @Route("/Categories/{category}", name="categories")
      */
-    public function viewCategory(Request $request): Response{
+    public function viewCategory(Request $request, string $category): Response{
         $categories = Pack::STANDARD_CATEGORIES;
         $repository = $this->getDoctrine()->getRepository(Pack::class);
         $packs=$repository->findAll();
-        $category = $request->attributes->get('category');
-        // $category = 'anniversaire';
         return $this->render("pack/categories.html.twig", [
             'categories' => $categories,
             'category' => $category, 
