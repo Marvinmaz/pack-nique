@@ -41,9 +41,7 @@
 							<img src="{{ asset('assets/img/logo3.png') }}" alt="Logo" class="tm-site-logo" /> 
 							<div class="tm-site-text-box">
 							{% for message in app.flashes("merci") %}
-								<div class="flash-merci">
-									<h1 class="text-dark">{{ message }}</h1>
-								</div>
+								<h1 class="text-dark">{{ message }}</h1>
 							{% endfor %}
 								<h1 class="tm-site-title">Pack Nique</h1>
 								<h6 class="tm-site-description">Le plaisir de la nature !</h6>	
