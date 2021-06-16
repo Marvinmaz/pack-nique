@@ -262,4 +262,10 @@ class Pack {
 
         return $this;
     }
+
+    public function toArray(){
+        return [
+            "price" => $this->getPrice(),
+        ];
+    }
 }
