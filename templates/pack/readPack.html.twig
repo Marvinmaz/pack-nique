@@ -16,8 +16,8 @@
                     {% if app.user.isAdmin(1) %}
                         <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
                         <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+                        {% endif %}
                         <a href="/create-comment/{{pack.id}}" class="card-link btn btn-white"><i class="fas fa-comment" style="color: green; "></i></a>
-                    {% endif %}
                 {% endif %}
             </div>
         </div>
