@@ -16,7 +16,7 @@ class CommentController extends AbstractController{
     /**
      * @Route("/create-comment/{id}", name="createComment")
      */
-    public function newComment(Request $request, Pack $pack, User $user): Response{
+    public function newComment(Request $request, Pack $pack): Response{
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
        
