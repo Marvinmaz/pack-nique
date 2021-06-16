@@ -1,0 +1,9 @@
+body{
+    background-image: url(/assets/img/GG-img.png);
+    background-size: auto;
+    height: 100vh;
+}
+
+a{
+    text-decoration: none;
+}

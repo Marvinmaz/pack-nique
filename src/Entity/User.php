@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\Security\Core\Encoder\PasswordHasherEncoder;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -54,7 +55,6 @@ class User implements UserInterface{
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message = "le mot de passe ne doit pas etre vide !")
-     * 
      */
     private $password; 
 

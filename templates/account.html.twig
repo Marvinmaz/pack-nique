@@ -12,13 +12,13 @@
             </div>
             <div style="padding: 10px;">
             {{ form_start(form, {"attr":{'novalidate': 'novalidate'}}) }}
-                {{ form_row(form.username) }}
-                {{ form_row(form.mail) }}
-                {{ form_row(form.password) }}
+                {{ form_row(form.username, {"attr" : {'placeholder':'Entrez votre pseudo'}}) }}
+                {{ form_row(form.mail, {"attr" : {'placeholder':'Entrez votre Email'}}) }}
+                {{ form_row(form.password, {"attr" : {'placeholder':'Entrez votre mot de passe'}}) }}
                 <input type="submit" value="GO" class="btn btn-primary w-100" style="border-radius: 100px;">
             {{ form_end(form) }}
             </div>
-            <p style="text-align: center;">J'ai deja un compte ! |<a href="/login"> Me connecter</a></p>
+            <p style="text-align: center;">J'ai deja un compte ! |<a href="/login" style="text-decoration: none;"> Me connecter</a></p>
         </div>
     </div>
 </div>
