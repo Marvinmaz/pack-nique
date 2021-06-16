@@ -1,7 +1,7 @@
 {% include 'base.html.twig' %}
 
 {% block body %}
-<h1>Bienvenue {{ app.user.username}} </h1>
+
 
 <div class="container mt-5">
     <div class="row" style="justify-content: center; ">
@@ -11,12 +11,12 @@
             </div>
             {{form_start(form, {'attr':{'novalidate':'novalidate'}}) }}  
                 {{form_row(form.firstname)}}  
+                {{form_row(form.name)}}  
                 {{form_row(form.age)}}  
                 {{form_row(form.tel)}}  
                 {{form_row(form.address)}}  
                 {{form_row(form.postalcode)}}  
                 {{form_row(form.country)}}  
-                {{form_row(form.pics)}}  
                 <input type="submit"  class="btn btn-primary w-100" value="envoyer">
             {{form_end(form)}}
         </div>

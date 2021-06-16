@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Basket;
 use App\Entity\Pack;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,6 +35,7 @@ class BasketController extends AbstractController {
             $totalItem = $item['pack']->getPrice() * $item['quantity'];
             $total += $totalItem;
         }
+        $session->set("totalPrice", $total);
 
         return $this->render('basket/basket.html.twig', [
             'items' => $basketWithData,
@@ -77,6 +77,13 @@ class BasketController extends AbstractController {
         $session->set('basket', $basket);
 
         return $this->redirectToRoute("cart_index");
+    }
+
+    /**
+     * @Route("/error", name="error")
+     */
+    public function error(){
+        return $this->render("error/errorId.html.twig");
     }
 
 }

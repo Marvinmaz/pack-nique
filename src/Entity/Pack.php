@@ -70,15 +70,16 @@ class Pack {
      */
     private $comment;
 
-    // 1:1
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Basket")
-     */
-    private $basket; 
+    // // n:0
+    // /**
+    //  * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="packs")
+    //  * @ORM\JoinColumn(name="sold_id", referencedColumnName="id", onDelete="CASCADE")
+    //  */
+    // private $sold;
 
-    public function __construct() {
-        $this->comment = new ArrayCollection();
-    }
+    // public function __construct() {
+    //     $this->comment = new ArrayCollection();
+    // }
 
 
     /**
@@ -244,22 +245,28 @@ class Pack {
     }
 
     /**
-     * Get the value of basket
+     * Get the value of sold
      */ 
-    public function getBasket()
+    public function getSold()
     {
-        return $this->basket;
+        return $this->sold;
     }
 
     /**
-     * Set the value of basket
+     * Set the value of sold
      *
      * @return  self
      */ 
-    public function setBasket($basket)
+    public function setSold($sold)
     {
-        $this->basket = $basket;
+        $this->sold = $sold;
 
         return $this;
+    }
+
+    public function toArray(){
+        return [
+            "price" => $this->getPrice(),
+        ];
     }
 }

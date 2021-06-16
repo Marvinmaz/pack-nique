@@ -54,6 +54,9 @@ s0.parentNode.insertBefore(s1,s0);
 						<div class="col-md-6 col-12">
 							<img src="{{ asset('assets/img/logo3.png') }}" alt="Logo" class="tm-site-logo" /> 
 							<div class="tm-site-text-box">
+							{% for message in app.flashes("merci") %}
+								<h1 class="text-dark">{{ message }}</h1>
+							{% endfor %}
 								<h1 class="tm-site-title">Pack Nique</h1>
 								<h6 class="tm-site-description">Le plaisir de la nature !</h6>	
 							</div>
@@ -156,19 +159,10 @@ s0.parentNode.insertBefore(s1,s0);
 				  </div>
 				</div>
 			  </div>
-			
+<iframe seamless width="888" height="336" frameborder="0" src="https://www.infoclimat.fr/public-api/mixed/iframeSLIDE?_ll=48.85341,2.3488&_inc=WyJQYXJpcyIsIjQyIiwiMjk4ODUwNyIsIkZSIl0=&_auth=UkhRRlEvUnAHKgYxVyEELQVtDjsMegkuAn4DYAtuVCkGbVY3UjIAZlM9B3pUewQyBSgObQA7AjIHbAR8CXtfPlI4UT1ROlI1B2gGY1d4BC8FKw5vDCwJLgJgA2MLYFQpBmRWOlI3AHxTOQd7VGIENQUpDnEAPgI8B2YEYAlsXz9SMFEzUTVSNwd3BntXYQQwBWUOZwxhCTUCZgMwCzdUYwZiVjBSZQBrUyIHY1RmBDQFMQ5sADoCOgdlBHwJe19FUkJRKFFyUnIHPQYiV3oEZQVoDjo%3D&_c=52aa15161bf357d315621983a6757039"></iframe>
 
-			<!-- Trier -->
-			  	<div class="trier">
-					<select class="form-select" aria-label="Default select example">
-						<option selected>Trier par</option>
-						<option value="1">Prix ordre croissance</option>
-						<option value="2">Prix ordre decroissance</option>
-						<option value="3">Avis</option>
-						<option value="3">Vente</option>
-					</select>
-				</div>
-			<!-- Trier End -->
+
+
 			<!-- Gallery -->
 			<div class="row tm-gallery">
 				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
@@ -180,10 +174,16 @@ s0.parentNode.insertBefore(s1,s0);
 								<h5 class="card-title">{{ pack.name }}</h5> 
 								<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
 								<p class="card-text">{{ pack.price }} €</p>
-								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								<a href="/read-comments/{{ pack.id }}">Voir plus...</a>
+								{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+								{% if app.user.isAdmin(1) %}
 									<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
-									<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+									<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a>
 								{% endif %}
+								{% endif %}
+									<a href="/read-comments/{{ pack.id }}"><i class="fas fa-info-circle fa-2x "></i></a><br>
+
+
 							 <div class="sana2">
 								<fieldset class="rating">
 									<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -197,7 +197,7 @@ s0.parentNode.insertBefore(s1,s0);
 									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 									<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
 								</fieldset>
-								<a href="/read-pack/{{ pack.id }}"><i class="fas fa-comment"></i></a>
+								<a href="/read-comments/{{ pack.id }}"><i class="fas fa-comment"></i></a>
 								<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart"></i></a>
 								
 								</figcaption>

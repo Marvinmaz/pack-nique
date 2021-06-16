@@ -5,15 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
-use Symfony\Component\Security\Core\Encoder\PasswordHasherEncoder;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
-
-
-
-
-
 
 /**
  *@ORM\Entity() 
@@ -60,7 +53,6 @@ class User implements UserInterface{
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message = "le mot de passe ne doit pas etre vide !")
-     * 
      */
     private $password; 
 
@@ -72,12 +64,17 @@ class User implements UserInterface{
      /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $postalCode;
+    private $postal_code;
 
      /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $firstName;
+    private $first_name;
+
+    //  /**
+    //  * @ORM\Column(type="string", nullable=true)
+    //  */
+    // private $name;
 
      /**
      * @ORM\Column(type="integer", nullable=true)
@@ -93,12 +90,7 @@ class User implements UserInterface{
      *      maxMessage = "le numero de telephone est trop long !",
      * ) 
      */
-    private $tel;
-
-     /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $pics; 
+    private $tel; 
 
       /**
      * @ORM\Column(type="string", nullable=true)
@@ -176,26 +168,26 @@ class User implements UserInterface{
 
     public function getPostalCode()
     {
-        return $this->postalCode;
+        return $this->postal_code;
     }
 
     
-    public function setPostalCode($postalCode)
+    public function setPostalCode($postal_code)
     {
-        $this->postalCode = $postalCode;
+        $this->postal_code = $postal_code;
 
         return $this;
     }
  
     public function getFirstName()
     {
-        return $this->firstName;
+        return $this->first_name;
     }
 
     
-    public function setFirstName($firstName)
+    public function setFirstName($first_name)
     {
-        $this->firstName = $firstName;
+        $this->first_name = $first_name;
 
         return $this;
     }
@@ -223,19 +215,6 @@ class User implements UserInterface{
     public function setTel($tel)
     {
         $this->tel = $tel;
-
-        return $this;
-    }
-
-    public function getPics()
-    {
-        return $this->pics;
-    }
-
-  
-    public function setPics($pics)
-    {
-        $this->pics = $pics;
 
         return $this;
     }
@@ -425,4 +404,24 @@ class User implements UserInterface{
         {
             return $this->username;
         }
+
+        // /**
+        //  * Get the value of name
+        //  */ 
+        // public function getName()
+        // {
+        //     return $this->name;
+        // }
+
+        // /**
+        //  * Set the value of name
+        //  *
+        //  * @return  self
+        //  */ 
+        // public function setName($name)
+        // {
+        //     $this->name = $name;
+
+        //     return $this;
+        // }
 }
