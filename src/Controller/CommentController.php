@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Pack;
-use App\Entity\User;
 use App\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
