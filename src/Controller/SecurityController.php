@@ -32,4 +32,11 @@ class SecurityController extends AbstractController{
         $session->clear();
         return $this->redirectToRoute("home");
     }
+
+    /**
+     * @Route("/error", name="error")
+     */
+    public function error(){
+        return $this->render("error/errorId.html.twig");
+    }
 }

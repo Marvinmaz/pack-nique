@@ -80,4 +80,11 @@ class CommentController extends AbstractController{
         ]);
     }
 
+    /**
+     * @Route("/error", name="error")
+     */
+    public function error(){
+        return $this->render("error/errorId.html.twig");
+    }
+
 }

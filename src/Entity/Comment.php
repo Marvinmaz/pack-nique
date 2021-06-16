@@ -36,10 +36,12 @@ class Comment {
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\GreaterThanOrEqual(0)
+     * @Assert\LessThanOrEqual(5)
      */
     private $note;
 
-
+   
     // N : 1
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="comments")
