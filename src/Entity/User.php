@@ -71,10 +71,10 @@ class User implements UserInterface{
      */
     private $first_name;
 
-    //  /**
-    //  * @ORM\Column(type="string", nullable=true)
-    //  */
-    // private $name;
+      /**
+      * @ORM\Column(type="string", nullable=true)
+      */
+     private $name;
 
      /**
      * @ORM\Column(type="integer", nullable=true)
