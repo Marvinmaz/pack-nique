@@ -45,6 +45,7 @@ class Comment {
     // N : 1
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="comments")
+     * @ORM\JoinColumn(name="pack_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $pack;
 
@@ -53,18 +54,6 @@ class Comment {
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
      */
     private $user;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $pack_id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $user_id;
-
-
 
     /**
      * Get the value of id

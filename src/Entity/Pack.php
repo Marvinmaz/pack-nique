@@ -70,16 +70,16 @@ class Pack {
      */
     private $comment;
 
-    // // n:0
-    // /**
-    //  * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="packs")
-    //  * @ORM\JoinColumn(name="sold_id", referencedColumnName="id", onDelete="CASCADE")
-    //  */
-    // private $sold;
+    // n:0
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="packs")
+     * @ORM\JoinColumn(name="sold_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $sold;
 
-    // public function __construct() {
-    //     $this->comment = new ArrayCollection();
-    // }
+    public function __construct() {
+        $this->comment = new ArrayCollection();
+    }
 
 
     /**
