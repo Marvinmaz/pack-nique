@@ -1,0 +1,224 @@
+{% extends "base.html.twig" %}
+    {% block title %}Pack Nique{% endblock %}
+	{% block stylesheets %}
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />  
+		<link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" />  
+		<link href="{{ asset('assets/css/templatemo-style.css') }}" rel="stylesheet" />
+		<link href="{{ asset('assets/css/slideshow.css') }}" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<link rel="icon" href="{{ asset('assets/img/logo3.png') }}">
+	{% endblock %}
+
+	{% block javascripts %}
+		{{parent()}}
+		<script>
+			$(document).ready(function(){
+				// Handle click on paging links
+				$('.tm-paging-link').click(function(e){
+					e.preventDefault();
+					var page = $(this).text().toLowerCase();
+					$('.tm-gallery-page').addClass('hidden');
+					$('#tm-gallery-page-' + page).removeClass('hidden');
+					$('.tm-paging-link').removeClass('active');
+					$(this).addClass("active");
+				});
+			});
+		</script>
+	{% endblock %}
+
+	{% block body %}
+	{{ parent()}}
+
+	<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/60c703de7f4b000ac03774bf/1f84me7sd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+
+	<div class="container">
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('assets/img/2.jpeg') }}">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="{{ asset('assets/img/logo3.png') }}" alt="Logo" class="tm-site-logo" /> 
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Pack Nique</h1>
+								<h6 class="tm-site-description">Le plaisir de la nature !</h6>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<div class="sana">
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Bienvenue sur Pack Nique 
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+						{{ app.user.username}}
+					{% endif %}
+				</h2>
+				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
+			</header>
+			</div>
+			<div class="tm-paging-links">
+				<nav>
+					<ul>
+						<li class="tm-paging-item" onclick="location.href='Categories/Réunion'"><a class="tm-paging-link active">Réunion</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/pique-nique'"><a class="tm-paging-link">Pique-nique</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Duo'"><a class="tm-paging-link">Duo</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Soirée'"><a class="tm-paging-link">Soirée</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Romantique'"><a class="tm-paging-link">Romantique</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Anniversaire'"><a class="tm-paging-link">Anniversaire</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Vegan'"><a class="tm-paging-link">Vegan</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/végétarien'"><a class="tm-paging-link">végétarien</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Halal'"><a class="tm-paging-link">Halal</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Barbeque'"><a class="tm-paging-link">Barbeque</a></li>
+					</ul>
+				</nav>
+			</div>
+		
+			<div class="content-width">
+			
+				<div class="slideshow">
+				  <!-- Slideshow Items -->
+				  <div class="slideshow-items">
+					<div class="item">
+					  <div class="item-image-container">
+						<img class="item-image" src="{{ asset('assets/img/gallery/01.jpg')}}" />
+					  </div>
+				
+					  <!-- Staggered Description Elements -->
+					  <div class="item-description">
+						<span class="vertical-part">
+						  <b>Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</b>
+						</span>
+					  </div>
+					</div>
+					<div class="item">
+					  <div class="item-image-container">
+						<img class="item-image" src="{{ asset('assets/img/gallery/02.jpg')}}" />
+					  </div>
+					  <!-- Staggered Header Elements -->
+					
+					  <!-- Staggered Description Elements -->
+					  <div class="item-description">
+						<span class="vertical-part">
+						  <b>Spotify</b>
+						</span>
+						<span class="vertical-part">
+						  <b>ipsum</b>
+						</span>
+						<span class="vertical-part">
+						  <b>dolor</b>
+						</span>
+						<span class="vertical-part">
+						  <b>sit</b>
+						</span>
+					  </div>
+					</div>
+					<div class="item">
+					  <div class="item-image-container">
+						<img class="item-image" src="{{ asset('assets/img/gallery/03.jpg')}}" />
+					  </div>
+					  
+					
+					  <!-- Staggered Description Elements -->
+					  <div class="item-description">
+						<span class="vertical-part">
+						  <b>Airbnb</b>
+						</span>
+						<span class="vertical-part">
+						  <b>ipsum</b>
+						</span>
+					  </div>
+					</div>
+				  </div>
+				  <div class="controls">
+					<ul>
+					  <li class="control" data-index="0"></li>
+					  <li class="control" data-index="1"></li>
+					  <li class="control" data-index="2"></li>
+					</ul>
+				  </div>
+				</div>
+			  </div>
+			
+
+			<!-- Trier -->
+			  	<div class="trier">
+					<select class="form-select" aria-label="Default select example">
+						<option selected>Trier par</option>
+						<option value="1">Prix ordre croissance</option>
+						<option value="2">Prix ordre decroissance</option>
+						<option value="3">Avis</option>
+						<option value="3">Vente</option>
+					</select>
+				</div>
+			<!-- Trier End -->
+			<!-- Gallery -->
+			<div class="row tm-gallery">
+				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+				 {% for pack in packs %} 
+                    {% set currentPath = path(app.request.attributes.get('_route'),
+                        app.request.attributes.get('_route_params')) %}
+                    {% if category in pack.categories %} 
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
+							<figcaption>
+								<h5 class="card-title">{{ pack.name }}</h5> 
+								<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
+								<p class="card-text">{{ pack.price }} €</p>
+								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+									<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
+									<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+								{% endif %}
+							 <div class="sana2">
+								<fieldset class="rating">
+									<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+									<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+									<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+									<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+									<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+								</fieldset>
+								<a href="/read-pack/{{ pack.id }}"><i class="fas fa-comment"></i></a>
+								<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart"></i></a>
+								
+								</figcaption>
+								
+								</figure>
+					</article>
+                    {% endif %}
+            	 {% endfor %}
+				</div> <!-- gallery page 1 -->
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>Developed by Sana, Marvin, Steven, Sébastien
+            
+            | Design: <a rel="nofollow" href="https://packnique.fr">Pack Nique</a></p>
+		</footer>
+	</div>
+
+	
+{% endblock %}

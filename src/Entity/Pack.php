@@ -54,7 +54,8 @@ class Pack {
      */ 
     private $categories; 
     const STANDARD_CATEGORIES = [
-        'vegan' => 'vegan', 'végétarien' => 'végétarien', 'halal' => 'halal', 'anniversaire' => 'anniversaire', 'réunion' => 'réunion', 'pique-nique' => 'pique-nique', 'duo' => 'duo', 'romantique' => 'romantique', 'soirée' => 'soirée', 'bbq' => 'bbq'];
+        'vegan' => 'vegan', 'végétarien' => 'végétarien', 'halal' => 'halal', 'anniversaire' => 'anniversaire', 
+        'réunion' => 'réunion', 'pique-nique' => 'pique-nique', 'duo' => 'duo', 'romantique' => 'romantique', 'soirée' => 'soirée', 'bbq' => 'bbq'];
 
 
     /**
@@ -69,16 +70,16 @@ class Pack {
      */
     private $comment;
 
-    // n:0
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="packs")
-     * @ORM\JoinColumn(name="sold_id", referencedColumnName="id", onDelete="CASCADE")
-     */
-    private $sold;
+    // // n:0
+    // /**
+    //  * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="packs")
+    //  * @ORM\JoinColumn(name="sold_id", referencedColumnName="id", onDelete="CASCADE")
+    //  */
+    // private $sold;
 
-    public function __construct() {
-        $this->comment = new ArrayCollection();
-    }
+    // public function __construct() {
+    //     $this->comment = new ArrayCollection();
+    // }
 
 
     /**

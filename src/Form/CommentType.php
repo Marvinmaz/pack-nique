@@ -2,10 +2,9 @@
 
 namespace App\Form;
 
-use App\Entity\Comment;
-use Doctrine\DBAL\Types\DateTimeType;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use App\Entity\Comment;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

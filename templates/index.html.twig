@@ -27,10 +27,24 @@
 		</script>
 	{% endblock %}
 
-
-
 	{% block body %}
 	{{ parent()}}
+
+	<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/60c703de7f4b000ac03774bf/1f84me7sd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
 
 	<div class="container">
 		<div class="placeholder">
@@ -66,12 +80,16 @@
 			<div class="tm-paging-links">
 				<nav>
 					<ul>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link active">Anniversaire</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Romantique</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Vegan</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">végétarien</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Halal</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Barbeque</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Réunion'"><a class="tm-paging-link active">Réunion</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/pique-nique'"><a class="tm-paging-link">Pique-nique</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Duo'"><a class="tm-paging-link">Duo</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Soirée'"><a class="tm-paging-link">Soirée</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Romantique'"><a class="tm-paging-link">Romantique</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Anniversaire'"><a class="tm-paging-link">Anniversaire</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Vegan'"><a class="tm-paging-link">Vegan</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/végétarien'"><a class="tm-paging-link">végétarien</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Halal'"><a class="tm-paging-link">Halal</a></li>
+						<li class="tm-paging-item" onclick="location.href='Categories/Barbeque'"><a class="tm-paging-link">Barbeque</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -89,7 +107,7 @@
 					  <!-- Staggered Description Elements -->
 					  <div class="item-description">
 						<span class="vertical-part">
-						  <b>Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</b>
+						  <b></b>
 						</span>
 					  </div>
 					</div>
