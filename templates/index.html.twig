@@ -44,8 +44,6 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 
-
-
 	<div class="container">
 		<div class="placeholder">
 			<div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('assets/img/2.jpeg') }}">
@@ -70,14 +68,14 @@ s0.parentNode.insertBefore(s1,s0);
 
 		<main>
 			<div class="sana">
-			<header class="row tm-welcome-section">
-				<h2 class="col-12 text-center tm-section-title">Bienvenue sur Pack Nique 
-					{% if is_granted('IS_AUTHENTICATED_FULLY') %} 
-						{{ app.user.username}}
-					{% endif %}
-				</h2>
-				<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
-			</header>
+				<header class="row tm-welcome-section">
+					<h2 class="col-12 text-center tm-section-title">Bienvenue sur Pack Nique 
+						{% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+							{{ app.user.username}}
+						{% endif %}
+					</h2>
+					<p class="col-12 text-center">Nous sommes ici pour vous préparer les délicieux packs pour profiter de vos moments!</p>
+				</header>
 			</div>
 			<div class="tm-paging-links">
 				<nav>
@@ -96,109 +94,105 @@ s0.parentNode.insertBefore(s1,s0);
 				</nav>
 			</div>
 		
-			
-			
-				<div class="slideshow">
-				  <!-- Slideshow Items -->
-				  <div class="slideshow-items">
-					<div class="item">
-					  <div class="item-image-container">
-						<img class="item-image" src="{{ asset('assets/img/gallery/01.jpg')}}" />
-					  </div>
-				
-					  <!-- Staggered Description Elements -->
-					  <div class="item-description">
-						<span class="vertical-part">
-						  <b>Profitez des beaux jours pour faire des repas au grand air ! Pour votre pique-nique : cakes, salades, sandwichs, tartes et terrines à emporter dans votre panier gourmand.</b>
-						</span>
-					  </div>
+			<div class="container">
+				<div class="row">						
+					<div class="slideshow">
+						<!-- Slideshow Items -->
+						<div class="slideshow-items">
+							<div class="item">
+								<div class="item-image-container">
+								<img class="item-image" src="{{ asset('assets/img/gallery/01.jpg')}}" />
+							</div>
+							<!-- Staggered Header Elements -->
+
+							<!-- Staggered Description Elements -->
+							<div class="item-description">
+								<span class="vertical-part">
+								<b>Profitez des beaux jours pour faire des repas au grand air ! Pour votre pique-nique : cakes, salades, sandwichs, tartes et terrines à emporter dans votre panier gourmand.</b>
+								</span>
+							</div>
+						</div>	
+						
+							<div class="item">
+								<div class="item-image-container">
+									<img class="item-image" src="{{ asset('assets/img/gallery/02.jpg')}}" />
+								</div>
+								<!-- Staggered Header Elements -->
+						
+								<!-- Staggered Description Elements -->
+								<div class="item-description">
+									<span class="vertical-part">
+									<b>Pensez à prendre de l’eau, des couverts, des assiettes, des verres et surtout un tire-bouchon et des sacs poubelles !</b>
+									</span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="item-image-container">
+									<img class="item-image" src="{{ asset('assets/img/gallery/03.jpg')}}" />
+								</div>
+								<!-- Staggered Header Elements -->
+							
+								<!-- Staggered Description Elements -->
+								<div class="item-description">
+									<span class="vertical-part">
+									<b>Une astuce si vous faites un pique-nique entre ami, demandez à chacun de prendre son assiette et ses couverts : cela fera beaucoup moins de vaisselle jetable.</b>
+									</span>
+								</div>
+							</div>
+						<div class="controls">
+							<ul>
+								<li class="control" data-index="0"></li>
+								<li class="control" data-index="1"></li>
+								<li class="control" data-index="2"></li>
+							</ul>
+						</div>
 					</div>
-					<div class="item">
-					  <div class="item-image-container">
-						<img class="item-image" src="{{ asset('assets/img/gallery/02.jpg')}}" />
-					  </div>
-					  <!-- Staggered Header Elements -->
-					
-					  <!-- Staggered Description Elements -->
-					  <div class="item-description">
-						<span class="vertical-part">
-						  <b>Pensez à prendre de l’eau, des couverts, des assiettes, des verres et surtout un tire-bouchon et des sacs poubelles !</b>
-						</span>
-					  </div>
-					</div>
-					<div class="item">
-					  <div class="item-image-container">
-						<img class="item-image" src="{{ asset('assets/img/gallery/03.jpg')}}" />
-					  </div>
-					  
-					
-					  <!-- Staggered Description Elements -->
-					  <div class="item-description">
-						<span class="vertical-part">
-						  <b>Une astuce si vous faites un pique-nique entre ami, demandez à chacun de prendre son assiette et ses couverts : cela fera beaucoup moins de vaisselle jetable.</b>
-						</span>
-					</div>
-				  </div>
-				  <div class="controls">
-					<ul>
-					  <li class="control" data-index="0"></li>
-					  <li class="control" data-index="1"></li>
-					  <li class="control" data-index="2"></li>
-					</ul>
-				  </div>
 				</div>
-			  </div>
+			</div>
 
-			<div class="container"  style="position: relative; overflow: hidden; width: 100%; height: 120%rem">			  
-				
-					<div id="tm-gallery-page-pizza" class="tm-gallery-page" style="height: 120%;">
-						{% for pack in packs %} 
-							<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item" style="margin-bottom: 30px; margin-right: 10px">
-								<figure>
-									<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
-									<figcaption>
-										<h5 class="card-title">{{ pack.name }}</h5> 
-										<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
-										<p class="card-text">{{ pack.price }} €</p>
-										{% if is_granted('IS_AUTHENTICATED_FULLY')%}
-										{% if app.user.isAdmin(1) %}
-											<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
-											<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a>
-										{% endif %}
-										{% endif %}
-											<a href="/read-comments/{{ pack.id }}" style="margin-left: 7px; padding-top: 7px"><i class="fas fa-info-circle fa-2x"></i></a><br>
+			<div class="container"  style="position: relative; overflow: hidden; width: 100%; height: 120%rem">			  				
+				<div id="tm-gallery-page-pizza" class="tm-gallery-page" style="height: 120%;">
+					{% for pack in packs %} 
+						<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item" style="margin-bottom: 30px; margin-right: 10px">
+							<figure>
+								<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
+								<figcaption>
+									<h5 class="card-title">{{ pack.name }}</h5> 
+									<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
+									<p class="card-text">{{ pack.price }} €</p>
+									{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+									{% if app.user.isAdmin(1) %}
+										<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
+										<a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a>
+									{% endif %}
+									{% endif %}
+										<a href="/read-comments/{{ pack.id }}" style="margin-left: 7px; padding-top: 7px"><i class="fas fa-info-circle fa-2x"></i></a><br>
 
-										<div class="sana2">
-											<fieldset class="rating">
-												<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-												<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-												<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-												<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-												<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-												<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-												<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-												<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-												<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-												<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-											</fieldset>
-												<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart"></i></a>
-										</div>
-									</figcaption>								
-								</figure>
-							</article>
-						{% endfor %}
-					</div>
-					<div class="container">	
-						<iframe class="responsive-iframe" style="top: 0; left: 0;bottom: 0; right: 0; width: 100%; height: 22rem;" seamless width="888" height="336" frameborder="0" src="https://www.infoclimat.fr/public-api/mixed/iframeSLIDE?_ll=48.85341,2.3488&_inc=WyJQYXJpcyIsIjQyIiwiMjk4ODUwNyIsIkZSIl0=&_auth=UkhRRlEvUnAHKgYxVyEELQVtDjsMegkuAn4DYAtuVCkGbVY3UjIAZlM9B3pUewQyBSgObQA7AjIHbAR8CXtfPlI4UT1ROlI1B2gGY1d4BC8FKw5vDCwJLgJgA2MLYFQpBmRWOlI3AHxTOQd7VGIENQUpDnEAPgI8B2YEYAlsXz9SMFEzUTVSNwd3BntXYQQwBWUOZwxhCTUCZgMwCzdUYwZiVjBSZQBrUyIHY1RmBDQFMQ5sADoCOgdlBHwJe19FUkJRKFFyUnIHPQYiV3oEZQVoDjo%3D&_c=52aa15161bf357d315621983a6757039">
-						</iframe>
-					<div>
-					
+									<div class="sana2">
+										<fieldset class="rating">
+											<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+											<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+											<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+											<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+											<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+											<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+											<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+											<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+											<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+											<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+										</fieldset>
+											<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart"></i></a>
+									</div>
+								</figcaption>								
+							</figure>
+						</article>
+					{% endfor %}
 				</div>
-				
-
-
-			
-			
+				<div class="container">	
+					<iframe class="responsive-iframe" style="top: 0; left: 0;bottom: 0; right: 0; width: 100%; height: 22rem;" seamless width="888" height="336" frameborder="0" src="https://www.infoclimat.fr/public-api/mixed/iframeSLIDE?_ll=48.85341,2.3488&_inc=WyJQYXJpcyIsIjQyIiwiMjk4ODUwNyIsIkZSIl0=&_auth=UkhRRlEvUnAHKgYxVyEELQVtDjsMegkuAn4DYAtuVCkGbVY3UjIAZlM9B3pUewQyBSgObQA7AjIHbAR8CXtfPlI4UT1ROlI1B2gGY1d4BC8FKw5vDCwJLgJgA2MLYFQpBmRWOlI3AHxTOQd7VGIENQUpDnEAPgI8B2YEYAlsXz9SMFEzUTVSNwd3BntXYQQwBWUOZwxhCTUCZgMwCzdUYwZiVjBSZQBrUyIHY1RmBDQFMQ5sADoCOgdlBHwJe19FUkJRKFFyUnIHPQYiV3oEZQVoDjo%3D&_c=52aa15161bf357d315621983a6757039">
+					</iframe>
+				<div>
+			</div>
 		</main>
 
 		<footer class="tm-footer text-center">

@@ -91,72 +91,62 @@ s0.parentNode.insertBefore(s1,s0);
 					</ul>
 				</nav>
 			</div>
-		
-			<div class="content-width">
 			
-				<div class="slideshow">
-				  <!-- Slideshow Items -->
-				  <div class="slideshow-items">
-					<div class="item">
-					  <div class="item-image-container">
-						<img class="item-image" src="{{ asset('assets/img/gallery/01.jpg')}}" />
-					  </div>
-				
-					  <!-- Staggered Description Elements -->
-					  <div class="item-description">
-						<span class="vertical-part">
-						  <b>Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</b>
-						</span>
-					  </div>
+			<div class="container">
+				<div class="row">						
+					<div class="slideshow">
+						<!-- Slideshow Items -->
+						<div class="slideshow-items">
+							<div class="item">
+								<div class="item-image-container">
+								<img class="item-image" src="{{ asset('assets/img/gallery/01.jpg')}}" />
+							</div>
+							<!-- Staggered Header Elements -->
+
+							<!-- Staggered Description Elements -->
+							<div class="item-description">
+								<span class="vertical-part">
+								<b>Profitez des beaux jours pour faire des repas au grand air ! Pour votre pique-nique : cakes, salades, sandwichs, tartes et terrines à emporter dans votre panier gourmand.</b>
+								</span>
+							</div>
+						</div>	
+						
+							<div class="item">
+								<div class="item-image-container">
+									<img class="item-image" src="{{ asset('assets/img/gallery/02.jpg')}}" />
+								</div>
+								<!-- Staggered Header Elements -->
+						
+								<!-- Staggered Description Elements -->
+								<div class="item-description">
+									<span class="vertical-part">
+									<b>Pensez à prendre de l’eau, des couverts, des assiettes, des verres et surtout un tire-bouchon et des sacs poubelles !</b>
+									</span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="item-image-container">
+									<img class="item-image" src="{{ asset('assets/img/gallery/03.jpg')}}" />
+								</div>
+								<!-- Staggered Header Elements -->
+							
+								<!-- Staggered Description Elements -->
+								<div class="item-description">
+									<span class="vertical-part">
+									<b>Une astuce si vous faites un pique-nique entre ami, demandez à chacun de prendre son assiette et ses couverts : cela fera beaucoup moins de vaisselle jetable.</b>
+									</span>
+								</div>
+							</div>
+						<div class="controls">
+							<ul>
+								<li class="control" data-index="0"></li>
+								<li class="control" data-index="1"></li>
+								<li class="control" data-index="2"></li>
+							</ul>
+						</div>
 					</div>
-					<div class="item">
-					  <div class="item-image-container">
-						<img class="item-image" src="{{ asset('assets/img/gallery/02.jpg')}}" />
-					  </div>
-					  <!-- Staggered Header Elements -->
-					
-					  <!-- Staggered Description Elements -->
-					  <div class="item-description">
-						<span class="vertical-part">
-						  <b>Spotify</b>
-						</span>
-						<span class="vertical-part">
-						  <b>ipsum</b>
-						</span>
-						<span class="vertical-part">
-						  <b>dolor</b>
-						</span>
-						<span class="vertical-part">
-						  <b>sit</b>
-						</span>
-					  </div>
-					</div>
-					<div class="item">
-					  <div class="item-image-container">
-						<img class="item-image" src="{{ asset('assets/img/gallery/03.jpg')}}" />
-					  </div>
-					  
-					
-					  <!-- Staggered Description Elements -->
-					  <div class="item-description">
-						<span class="vertical-part">
-						  <b>Airbnb</b>
-						</span>
-						<span class="vertical-part">
-						  <b>ipsum</b>
-						</span>
-					  </div>
-					</div>
-				  </div>
-				  <div class="controls">
-					<ul>
-					  <li class="control" data-index="0"></li>
-					  <li class="control" data-index="1"></li>
-					  <li class="control" data-index="2"></li>
-					</ul>
-				  </div>
 				</div>
-			  </div>
+			</div>
 			
 
 			<!-- Gallery -->
@@ -166,7 +156,7 @@ s0.parentNode.insertBefore(s1,s0);
                     {% set currentPath = path(app.request.attributes.get('_route'),
                         app.request.attributes.get('_route_params')) %}
                     {% if category in pack.categories %} 
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item" style="margin-bottom: 30px; margin-right: 10px">
 						<figure>
 							<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
 							<figcaption>

@@ -28,13 +28,20 @@
     height: auto;
   }
   
-  .item-image-container {
-    
-    
+@media only screen and (max-width : 500px) {  
+  .item-image-container {        
     height: 300px;
-    width: 35%;
-    
+    width: 55%;    
   }
+}
+
+@media only screen and (min-width : 500px) {  
+  .item-image-container {        
+    height: 300px;
+    width: 35%;    
+  }
+}
+
   
   .item-image-container::before {
     content: '';
@@ -141,3 +148,4 @@
   .controls ul li.active {
     background:#6a6a77;;
   }
+  
