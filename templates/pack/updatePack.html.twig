@@ -17,8 +17,8 @@
     <div class="d-flex justify-content-center">
         <h2 style="color:#c9184a"> GESTION ADMINISTRATEUR / Mettre à jour le pack</h2>    
     </div>
-    <div class="container col-4">
-        <div class="d-flex mt-4">
+    <div class="container col-4" style="border: 1px solid black;  background-color: #FFEAE5; padding: 0%; border-radius: 10px;">
+        <div class="mt-4"  style="padding: 10px;">
             <div>
                 <div class="mt-2" style="font-weight:bold; color:#00b4d8; font-size:16px">
                     {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
@@ -27,7 +27,7 @@
                         {{ form_row(form.price) }}
                         {{ form_row(form.categories) }}
                         {{ form_row(form.content) }}
-                        <button type="submit" class="btn btn-primary mb-2">Mettre à jour</button>
+                        <button type="submit" class="btn btn-primary mb-2" style="width: 100%;">Mettre à jour</button>
                     {{ form_end(form) }}
                 </div>
             </div>

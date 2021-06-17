@@ -12,19 +12,21 @@
 
     {% set route = app.request.get("_route") %}
  <div class="container1">
-    <div class="container2">    
-        <div class="card">
+    <div class="container2" >    
+        <div class="card" style="border: 1px solid black;  background-color: #FFEAE5; padding: 1%; border-radius: 10px;">
             <div class="card-body">
                 <img src="/uploads/images/{{ pack.picture }}" class="card-img-top" alt="...">
-                <h5 class="card-title">{{ pack.name }}</h5>                       
+                <h5 class="card-title">{{ pack.name }}</h5> 
+                <p style="font-weight: bold; margin: 0%;"> Description du pack : </p>                      
                 <p class="card-text">{{ pack.content }}</p>
-                <p class="card-text">{{ pack.price }} €</p>
+                <p class="card-text">Prix : {{ pack.price }} €</p>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     {% if app.user.isAdmin(1) %}
                         <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
                         <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
                         {% endif %}
-                        <a href="/create-comment/{{pack.id}}" class="card-link btn btn-white"><i class="fas fa-comment" style="color: green; "></i></a>
+                        
+                        <a href="/create-comment/{{pack.id}}" class="card-link btn btn-primary">Ajouter un commentaire <i class="fas fa-comment"></i></a>
                 {% endif %}
             </div>
         </div>
@@ -36,8 +38,8 @@
     <div class="container mt-1 d-flex justify-content-center">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <ul class="list-unstyled">
+                <div class="card" style="border: 1px solid black;  background-color: #FFEAE5; padding: 2%; border-radius: 10px;" >
+                    <ul class="list-unstyled m-0">
                         <!--THIRD LIST ITEM-->
                         {% for comment in comments %}
                         <li class="media"> <span class="round"><img src="https://img.icons8.com/office/100/000000/user-group-man-man--v1.png" class="align-self-start mr-3"></span>

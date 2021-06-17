@@ -195,7 +195,7 @@ class PackController extends AbstractController{
         return $this->render("pack/categories.html.twig", [
             'categories' => $categories,
             'category' => $category, 
-            'packs' => $packs
+            'packs' => $packs,
         ]);
     }
 
