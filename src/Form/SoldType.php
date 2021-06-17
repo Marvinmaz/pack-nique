@@ -10,11 +10,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 class SoldType extends AbstractType{
-    public function buildForm(FormBuilderInterface $builder, array $options){
-       
+    public function buildForm(FormBuilderInterface $builder, array $options){      
         $builder
-            // ->add('user', UserInfoType::class, ["label" => "Coordonnées"])
-            ->add('code', TextType::class, ['label' => 'Code promo']);
+            ->add('code', TextType::class, ['label' => 'Code promo']);           // Permet de rentrer le code promotionnel dans l'affichage
     }
 
     public function configureOptions(OptionsResolver $resolver){

@@ -20,50 +20,46 @@ class PackController extends AbstractController{
      */
     public function newPack(Request $request, SluggerInterface $slugger): Response{
         
-        if ($this->getUser()->getIsAdmin(1)) {
+        if ($this->getUser()->getIsAdmin(1)) {      // On vérifie que l'utilisateur est bien un administrateur
             $pack = new Pack();
-            $form = $this->createForm(PackType::class, $pack);
+            $form = $this->createForm(PackType::class, $pack); //On créer le formulaire dans Form (PackType)
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $pack->setSales_volume(0);
-                $picture = $form->get('picture')->getData();
+            if ($form->isSubmitted() && $form->isValid()) {  // Si le formulaire est bien rempli 
+                $pack->setSales_volume(0);                    // On initialise le nombre de ventes du produit à 0
+                $picture = $form->get('picture')->getData();   // On récupère l'image
     
-                // this condition is needed because the 'picture' field is not required
-                // so the picture file must be processed only when a file is uploaded
+                // Comme il n'est pas obligatoire d'avoir une image, on traite le fichier seulement si il est téléchargé
                 if($picture){
                     $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
-                    // this is needed to safely include the file name as part of the URL
+                    // Pour inclure le nom du fichier dans l'URL
                     $safeFilename = $slugger->slug($originalFilename);
-                    $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();   // On génére un identifiant unique à l'image
     
-                    // Move the file to the directory where brochures are stored
                     try {
                         $picture->move(
-                            $this->getParameter('images'),
+                            $this->getParameter('images'),                // On déplace le fichier dans le dossier images
                             $newFilename
                         );
-                    } catch (FileException $e) {
+                    } catch (FileException $e) {                    // On gère une exception si quelque chose se produit pendant le téléchargement
                         dump($e);
-                        // ... handle exception if something happens during file upload
+                        
                     }
-    
-                    // updates the 'pictureFilename' property to store the PDF file name
-                    // instead of its contents
-                    $pack->setPicture($newFilename);
+
+                    $pack->setPicture($newFilename);         // On stocke le nom du fichier dans le pack au lieu de son contenu
                 }
                
-                $em = $this->getDoctrine()->getManager();
+                $em = $this->getDoctrine()->getManager();      // On l'enregistre en base de données
                 $em->persist($pack);
                 $em->flush();
     
-                return $this->redirectToRoute("home");
+                return $this->redirectToRoute("home");            // Une fois que le pack est créer, on retourne sur la page d'accueil
             }
-            return $this->render('pack/createPack.html.twig', [
+            return $this->render('pack/createPack.html.twig', [     // On affiche le formulaire sur cette route
                'form' => $form->createView()
            ]);
 
         } else {
-            return $this->redirectToRoute("home");
+            return $this->redirectToRoute("home");           // Si l'utilisateur n'est pas un administrateur, on le renvoie sur la page d'accueil
         }               
 
        
@@ -76,35 +72,27 @@ class PackController extends AbstractController{
         if ($this->getUser()->getIsAdmin(1)) {
             $form = $this->createForm(PackType::class, $updatePack);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()){
                 $picture = $form->get('picture')->getData();
-
-                // this condition is needed because the 'picture' field is not required
-                // so the picture file must be processed only when a file is uploaded
+                
                 if($picture){
                     $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
-                    // this is needed to safely include the file name as part of the URL
                     $safeFilename = $slugger->slug($originalFilename);
                     $newFilename = $safeFilename.'-'.uniqid().'.'.$picture->guessExtension();
 
-                    // Move the file to the directory where brochures are stored
                     try {
                         $picture->move(
                             $this->getParameter('images'),
-                            $newFilename
-                        );
+                            $newFilename);
                     } catch (FileException $e) {
                         dump($e);
-                        // ... handle exception if something happens during file upload
                     }
 
-                    // updates the 'pictureFilename' property to store the PDF file name
-                    // instead of its contents
                     $updatePack->setPicture($newFilename);
                 }
 
                 $this->getDoctrine()->getManager()->flush();
-
                 return $this->redirectToRoute("home");
             }
 

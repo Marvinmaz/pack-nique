@@ -11,75 +11,75 @@
     {{ parent() }}
 
     {% set route = app.request.get("_route") %}
-<div class="container1">
-    <div class="container2" >
-        <div class="card" style="border: 1px solid black;  background-color: #FFEAE5; padding: 1%; border-radius: 10px;">
-            <div class="card-body">
-                <img src="/uploads/images/{{ pack.picture }}" class="card-img-top" alt="...">
-                <h5 class="card-title">{{ pack.name }}</h5> 
-                <p style="font-weight: bold; margin: 0%;"> Description du pack : </p>                      
-                <p class="card-text">{{ pack.content }}</p>
-                <p class="card-text">Prix : {{ pack.price }} €</p>
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {% if app.user.isAdmin(1) %}
-                        <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
-                        <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
-                        {% endif %}
-                        
-                        <a href="/create-comment/{{pack.id}}" class="card-link btn btn-primary">Ajouter un commentaire <i class="fas fa-comment"></i></a>
-                {% endif %}
-            </div>
+    <div class="container1">
+        <div class="container2" >
+            <div class="card" style="border: 1px solid black;  background-color: #FFEAE5; padding: 1%; border-radius: 10px;">
+                <div class="card-body">
+                    <img src="/uploads/images/{{ pack.picture }}" class="card-img-top" alt="...">
+                    <h5 class="card-title">{{ pack.name }}</h5> 
+                    <p style="font-weight: bold; margin: 0%;"> Description du pack : </p>                      
+                    <p class="card-text">{{ pack.content }}</p>
+                    <p class="card-text">Prix : {{ pack.price }} €</p>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}           {# Si l'utilisateur est connecté #}
+                        {% if app.user.isAdmin(1) %}                        {# Si l'utilisateur est un administrateur alors on affiche les boutons de suppresion et modification de packs #}
+                            <a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
+                            <a href="/delete-pack/{{ pack.id }}" class="card-link btn btn-danger mb-2"><i class="fas fa-trash-alt"></i></a><br>
+                            {% endif %}
+                            
+                            <a href="/create-comment/{{pack.id}}" class="card-link btn btn-primary">Ajouter un commentaire <i class="fas fa-comment"></i></a>
+                    {% endif %}
+                </div>
+            </div>    
         </div>    
-    </div>    
-    <div class="container3">
-        <div class="container mt-1 d-flex justify-content-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card" style="border: 1px solid black;  background-color: #FFEAE5; padding: 2%; border-radius: 10px;" >
-                        <ul class="list-unstyled m-0">
-                            <!--THIRD LIST ITEM-->
-                            {% for comment in comments %}
-                            <li class="media"> <span class="round"><img src="https://img.icons8.com/office/100/000000/user-group-man-man--v1.png" class="align-self-start mr-3"></span>
-                                <div class="media-body">
-                                    <div class="row d-flex">
-                                        <h6 class="user">{{comment.user.username}} </h6>
-                                        <div class="ml-auto">
-                                            <p class="text">{{ comment.createdAt|date("d/m/Y") }}</p>
+        <div class="container3">
+            <div class="container mt-1 d-flex justify-content-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card" style="border: 1px solid black;  background-color: #FFEAE5; padding: 2%; border-radius: 10px;" >
+                            <ul class="list-unstyled m-0">
+                                <!--THIRD LIST ITEM-->
+                                {% for comment in comments %}
+                                <li class="media"> <span class="round"><img src="https://img.icons8.com/office/100/000000/user-group-man-man--v1.png" class="align-self-start mr-3"></span>
+                                    <div class="media-body">
+                                        <div class="row d-flex">
+                                            <h6 class="user">{{comment.user.username}} </h6>
+                                            <div class="ml-auto">
+                                                <p class="text">{{ comment.createdAt|date("d/m/Y") }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <p class="text mb-2">{{ comment.content}}</p>
-                                        {% if comment.note == 5 %}
-                                        <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-                                    {% endif %}
-                                    {% if comment.note == 4 %}
-                                        <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-                                    {% endif %}
-                                    {% if comment.note == 3 %}
-                                        <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-                                    {% endif %}
-                                    {% if comment.note == 2 %}
-                                        <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-                                    {% endif %}
-                                    {% if comment.note == 1 %}
-                                        <p style="color: yellow;"><i class="fas fa-star"></i></p>
-                                    {% endif %}
-                                    <p> Note: {{ comment.note }}/5 
-                                        {% if is_granted('IS_AUTHENTICATED_FULLY') and comment.user.id == app.user.id %}
-                                            <a href="/update-comment/{{comment.id}}" class="card-link"><i class="fas fa-edit" style="color: blue; "></i></a>
-                                            <a href="/delete-comment/{{comment.id}}" class="card-link"><i class="fas fa-trash" style="color: red; "></i></a>
+                                        <p class="text mb-2">{{ comment.content}}</p>
+                                            {% if comment.note == 5 %}
+                                            <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
                                         {% endif %}
-                                    </p>
+                                        {% if comment.note == 4 %}
+                                            <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                                        {% endif %}
+                                        {% if comment.note == 3 %}
+                                            <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                                        {% endif %}
+                                        {% if comment.note == 2 %}
+                                            <p style="color: yellow;"><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                                        {% endif %}
+                                        {% if comment.note == 1 %}
+                                            <p style="color: yellow;"><i class="fas fa-star"></i></p>
+                                        {% endif %}
+                                        <p> Note: {{ comment.note }}/5 
+                                            {% if is_granted('IS_AUTHENTICATED_FULLY') and comment.user.id == app.user.id %}
+                                                <a href="/update-comment/{{comment.id}}" class="card-link"><i class="fas fa-edit" style="color: blue; "></i></a>
+                                                <a href="/delete-comment/{{comment.id}}" class="card-link"><i class="fas fa-trash" style="color: red; "></i></a>
+                                            {% endif %}
+                                        </p>
+                                    </li>
+                                    {% endfor %}
+                                    </ul>
+                                    </div>
+                                    </div>
                                 </li>
-                                {% endfor %}
-                                </ul>
-                                </div>
-                                </div>
-                            </li>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -18,10 +18,10 @@ class SoldController extends AbstractController{
     public function createSold(SessionInterface $session, Request $request): Response {
         $sold = new Sold();
         $form = $this->createForm(SoldType::class, $sold);
-        $totalPrice = $session->get("totalPrice");
+        $totalPrice = $session->get("totalPrice");                          // On récupère le prix total dans la session
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            if ($sold->getCode() === "reduc") {
+            if ($sold->getCode() === "reduc") {                             // Easter egg, si on met ce code le prix sera 20% moins cher
                 $totalPrice *= 4/5;
                 $session->set("totalPrice", $totalPrice);
             }
