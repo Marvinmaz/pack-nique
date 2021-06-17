@@ -30,7 +30,7 @@ class CommentController extends AbstractController{
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirectToRoute("home");
+            return $this->redirect("/read-comments/{$comment->getPack()->getId()}");
         }
 
         return $this->render('comment/createComment.html.twig', [
@@ -48,7 +48,7 @@ class CommentController extends AbstractController{
         if ($form->isSubmitted() && $form->isValid()){
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute("home");
+            return $this->redirect("/read-comments/{$updateComment->getPack()->getId()}");
         }
 
         return $this->render('comment/createComment.html.twig', [
@@ -64,7 +64,7 @@ class CommentController extends AbstractController{
         $em->remove($delete);
         $em->flush();
 
-        return $this->redirectToRoute("home");
+        return $this->redirect("/read-comments/{$delete->getPack()->getId()}");
     }
 
     /**
