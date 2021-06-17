@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 
 body {
-    background-color: #F4F4F4 !important
+    background-image:url('/assets/img/hotel-wallpaper.png') !important
 }
 
 h3 {
