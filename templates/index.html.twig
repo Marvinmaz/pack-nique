@@ -157,9 +157,11 @@ s0.parentNode.insertBefore(s1,s0);
 							<figure>
 								<img src="/uploads/images/{{ pack.picture }}" class="card-img-top img-thumbnail" >
 								<figcaption>
-									<h5 class="card-title">{{ pack.name }}</h5> 
+									<h5 class="card-title">{{ pack.name }}</h5>
+									<p style="margin: 0%; font-weight: bold;">Description du pack : </p> 
 									<p class="card-text" style="margin: 0%;">{{ pack.content }}</p>
-									<p class="card-text">{{ pack.price }} €</p>
+									<p class="card-text"> <span style="font-weight: bold;">prix :</span> {{ pack.price }} €</p>
+									<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
 									{% if is_granted('IS_AUTHENTICATED_FULLY')%}
 									{% if app.user.isAdmin(1) %}
 										<a href="/update-pack/{{ pack.id }}" class="card-link btn btn-warning mb-2"><i class="fas fa-edit"></i></a>
@@ -167,22 +169,6 @@ s0.parentNode.insertBefore(s1,s0);
 									{% endif %}
 									{% endif %}
 										<a href="/read-comments/{{ pack.id }}" style="margin-left: 7px; padding-top: 7px"><i class="fas fa-info-circle fa-2x"></i></a><br>
-
-									<div class="sana2">
-										<fieldset class="rating">
-											<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-											<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-											<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-											<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-											<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-											<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-											<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-											<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-											<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-											<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-										</fieldset>
-											<a href="/basket/add/{{ pack.id }}"><i class="fas fa-shopping-cart"></i></a>
-									</div>
 								</figcaption>								
 							</figure>
 						</article>
