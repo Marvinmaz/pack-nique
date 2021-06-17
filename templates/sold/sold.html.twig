@@ -14,33 +14,33 @@
 {% block body %}
     {{ parent() }}
 
-<div class="container col-6 mt-2" style="border-radius: 10px; border: black 1px solid; background-color: #FFEAE5;">
-	<div class="mt-5">
+<div class="container col-10 mt-2" style="border-radius: 10px; border: black 1px solid; background-color: #FFEAE5;">
+	<div class="row mt-5">
 		{{ form_start(form) }}
 			{{ form_row(form.code) }}
 			<input type="submit" class="btn btn-info">
 		{{ form_end(form) }}
 	</div>
-		<h5 class="my-5 text-success" style="font-weight:bold">Montant de la transaction : {{ totalPrice }} EUR</h5>
+		<h5 class="my-3 text-success" style="font-weight:bold">Montant de la transaction : {{ totalPrice }} EUR</h5>
 	<div>
 		<div class="input-group">
 			<p class="me-5">Types de paiement</p>
 			<div class="input-group-prepend">
 				<div>
 					<input type="radio" aria-label="Radio button for following text input">
-					<img src="/assets/img/logo-cb-1.jpg" alt="" style="height: 30px" class="mx-2 my-2"><span class="ms-2"> Carte Bancaire</span>
+					<img src="/assets/img/logo-cb-1.jpg" alt="" style="height: 30px" class="mx-2 my-1"><span class="ms-2"> Carte Bancaire</span>
 				</div>
 				<div>
 					<input type="radio" aria-label="Radio button for following text input">
-					<img src="/assets/img/ancien-logo-visa-1-1024x389.png" alt="" style="height: 30px" class="mx-2 my-2"><span class="ms-2"> Visa</span>
+					<img src="/assets/img/ancien-logo-visa-1-1024x389.png" alt="" style="height: 30px" class="mx-2 my-1"><span class="ms-2"> Visa</span>
 				</div>
 				<div>
 					<input type="radio" aria-label="Radio button for following text input">
-					<img src="/assets/img/MasterCard-Logo-1-1024x768.png" alt="" style="height: 30px" class="mx-2 my-2"><span class="ms-2"> MasterCard</span>
+					<img src="/assets/img/MasterCard-Logo-1-1024x768.png" alt="" style="height: 30px" class="mx-2 my-1"><span class="ms-2"> MasterCard</span>
 				</div>
 				<div>
 					<input type="radio" aria-label="Radio button for following text input">
-					<img src="/assets/img/PP_logo_h_200x51-1.png" alt="" style="height: 30px" class="mx-2 my-2"><span class="ms-2"> PayPal</span>
+					<img src="/assets/img/PP_logo_h_200x51-1.png" alt="" style="height: 30px" class="mx-2 my-1"><span class="ms-2"> PayPal</span>
 				</div>
 				<div class="mt-4">
 					<span class="me-5">N° de carte </span><input type="text">
