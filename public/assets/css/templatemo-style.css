@@ -939,3 +939,8 @@ h1 { font-size: 1.5em; margin: 10px; }
   justify-content: space-around;
   align-items: center;
 }
+
+
+@media only screen and (min-width : 800px) {
+   
+}
