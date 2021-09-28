@@ -30,7 +30,7 @@ class Pack {
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable="true")
      */ 
     private $picture;
 
@@ -66,13 +66,13 @@ class Pack {
 
     // 0:n
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="Pack")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="pack")
      */
     private $comment;
 
     // n:0
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="packs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Sold", inversedBy="packs")
      * @ORM\JoinColumn(name="sold_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $sold;

@@ -102,13 +102,13 @@ class User implements UserInterface{
      */
     private $isAdmin;
 
-    // 0 : N
+    // 0:n
      /**
      * @ORM\OneToMany(targetEntity="App\Entity\Sold", mappedBy="User")
      */
     private $solds;
 
-    // 0 : N
+    // 0:n
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="User")
      */

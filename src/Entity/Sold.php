@@ -36,13 +36,13 @@ class Sold {
      */ 
     private $inProgress;
 
-    // N : 0
+    // n:0
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="solds")
      */
     private $user;
 
-    // 0 : N
+    // 0:n
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Pack", mappedBy="sold")
     */

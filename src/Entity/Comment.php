@@ -44,14 +44,14 @@ class Comment {
    
     // N : 1
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Pack", inversedBy="comment")
      * @ORM\JoinColumn(name="pack_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $pack;
 
     // N : 1
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comment")
      */
     private $user;
 
