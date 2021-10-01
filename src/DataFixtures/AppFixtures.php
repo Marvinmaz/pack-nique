@@ -25,13 +25,12 @@ class AppFixtures extends Fixture {
 
             $user->setUsername($faker->username())
                 ->setMail($faker->email())
-                ->setPassword($this->passwordHasher->hashPassword($user, "password"));
+                ->setPassword($this->passwordHasher->hashPassword($user, "password"))
+                ->setIsAdmin(0);
 
             $manager->persist($user);
         }
-        // $product = new Product();
-        // $manager->persist($product);
-
+        
         $manager->flush();
     }
 }
