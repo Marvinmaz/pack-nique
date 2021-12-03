@@ -9,14 +9,14 @@
 
 {% block body %}
     {{ parent() }}
-        <div class="container mt-5" style="border: 1px solid black;  background-color: #FFEAE5; padding: 0%; border-radius: 10px;">  {# Page permettant l'affichage du panier #}
-            {% set route = app.request.get("_route") %}
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}   {# Si l'utilisateur est connecté #}
-                {% if items | length > 0 %}          {# Si il y a des objets dans le panier, on les affiche dans un tableau #}
+        <div class="container mt-5 pt-3" style="border: 1px solid black;  background-color: #FFEAE5; padding: 0%; border-radius: 10px;">  {# Page permettant l'affichage du panier #}
                     <div class="d-flex p-2">
                         <h2> Votre panier</h2>
                         <a href="/sold" class="btn btn-success ms-5">Valider le panier <i class="fas fa-cart-plus"></i></a>
                     </div>
+            {% set route = app.request.get("_route") %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}   {# Si l'utilisateur est connecté #}
+                {% if items | length > 0 %}          {# Si il y a des objets dans le panier, on les affiche dans un tableau #}
                     <table class="table">
                         <thead>
                             <tr>

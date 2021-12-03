@@ -11,7 +11,7 @@
 {% block body %}
     {{ parent() }}
 
-	<div class="container col-10 mt-2" style="border-radius: 10px; border: black 1px solid; background-color: #FFEAE5;">   {# Page permettant d'afficher la commande #}
+	<div class="container col-10 mt-3" style="border-radius: 10px; border: black 1px solid; background-color: #FFEAE5;">   {# Page permettant d'afficher la commande #}
 		<div class="row mt-5">
 			{{ form_start(form) }}												{# Permet de rentrer le code de reduction #}
 				{{ form_row(form.code) }}
